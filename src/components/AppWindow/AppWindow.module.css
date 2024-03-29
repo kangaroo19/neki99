@@ -1,0 +1,12 @@
+.boxContainer {
+  width: 600px;
+  position: absolute;
+  top: -30%;
+  left: 30%;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
