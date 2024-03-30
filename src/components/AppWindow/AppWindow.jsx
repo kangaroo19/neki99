@@ -9,8 +9,12 @@ import ContentSection from './components/ContentSection'
 import ContentScrollView from './components/ContentScrollView'
 import ContentNav from './components/ContentNav'
 
-export default function AppWindow({ children }) {
-  return <AppWindowMain className={styles.boxContainer}>{children}</AppWindowMain>
+export default function AppWindow({ children, width }) {
+  return (
+    <AppWindowMain className={styles.boxContainer} width={width}>
+      {children}
+    </AppWindowMain>
+  )
 }
 
 AppWindow.Header = AppWindowHeader
@@ -21,5 +25,5 @@ AppWindow.ScrollView = ContentScrollView
 AppWindow.Nav = ContentNav
 
 const AppWindowMain = styled(Window)`
-  border: 1px solid red;
+  width: ${props => props.width};
 `

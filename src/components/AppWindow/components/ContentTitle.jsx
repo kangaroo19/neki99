@@ -7,4 +7,5 @@ export default function ContentTitle({ children }) {
 const Title = styled.div`
   font-weigth: 700;
   font-size: 1.6rem;
+  padding-bottom: 10px;
 `
