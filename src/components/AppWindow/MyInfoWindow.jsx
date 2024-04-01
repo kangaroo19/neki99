@@ -18,8 +18,8 @@ const Img = styled.img`
   width: 100%;
   height: 100%;
 `
-
-const MarkdownTitle = styled(Frame)`
+// 이거 '내 프로젝트' 창에서도 사용 위해 export
+export const MarkdownTitle = styled(Frame)`
   padding: 10px;
   margin: 10px 0;
   width: 100%;
@@ -106,9 +106,9 @@ export default function MyInfoWindow() {
           <AppWindow.Header onClick={() => onClickWindowClose('myInfoWindow')}>내 정보</AppWindow.Header>
           <AppWindow.Content>
             <AppWindow.ContentTitle>프론트엔드 개발자가 되고싶은 천재현입니다.</AppWindow.ContentTitle>
-            <AppWindow.ContentSection>
+            <AppWindow.ContentSection height="300px">
               <AppWindow.ScrollView>
-                <img src={banner} alt="" style={{ width: '100%' }} />
+                <AppWindow.Image src={banner} alt="아스키아트" width="100%" />
                 <MonitorContainer>
                   <Img src={myFace} alt="myFace" />
                 </MonitorContainer>
