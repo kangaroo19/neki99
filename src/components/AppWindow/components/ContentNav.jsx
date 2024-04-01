@@ -2,11 +2,20 @@ import { Button } from 'react95'
 import styled from 'styled-components'
 
 export default function ContentNav() {
+  const onClickRouteBtn = url => {
+    window.open(url)
+  }
   return (
     <ButtonContainer>
-      <CustomButton primary>GitHub</CustomButton>
-      <CustomButton primary>Blog</CustomButton>
-      <CustomButton primary>Notion</CustomButton>
+      <CustomButton primary onClick={() => onClickRouteBtn('https://github.com/kangaroo19')}>
+        GitHub
+      </CustomButton>
+      <CustomButton primary onClick={() => onClickRouteBtn('https://kangcheon.tistory.com/')}>
+        Blog
+      </CustomButton>
+      <CustomButton primary onClick={() => onClickRouteBtn('https://www.notion.so/442406f327bd4af5835947bc7f7d1c98')}>
+        Notion
+      </CustomButton>
     </ButtonContainer>
   )
 }

@@ -1,11 +1,11 @@
 import { Button, WindowHeader } from 'react95'
 import styled from 'styled-components'
 
-export default function AppWindowHeader({ children }) {
+export default function AppWindowHeader({ children, onClick }) {
   return (
     <WindowHeaderContainer>
       <span>{children}</span>
-      <Button>X</Button>
+      <Button onClick={onClick}>X</Button>
     </WindowHeaderContainer>
   )
 }
