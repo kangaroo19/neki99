@@ -9,6 +9,7 @@ import ContentSection from './components/ContentSection'
 import ContentScrollView from './components/ContentScrollView'
 import ContentNav from './components/ContentNav'
 import ContentImg from './components/ContentImg'
+import ContentTab from './components/ContentTab'
 
 export default function AppWindow({ children, width }) {
   return (
@@ -25,6 +26,7 @@ AppWindow.ContentSection = ContentSection
 AppWindow.ScrollView = ContentScrollView
 AppWindow.Nav = ContentNav
 AppWindow.Image = ContentImg
+AppWindow.Tab = ContentTab
 
 const AppWindowMain = styled(Window)`
   width: ${props => props.width};

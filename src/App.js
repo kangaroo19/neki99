@@ -7,19 +7,20 @@ import trashIcon from 'asset/images/trash.png'
 import networkIcon from 'asset/images/network.png'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import MyProjectsWindow from 'components/AppWindow/MyProjectsWindow'
+import MyInfoWindow from 'components/AppWindow/MyInfoWindow'
 // import MyInfoWindow from 'components/AppWindow/MyInfoWindow'
 
 export default function App() {
-  const { onClickWindowOpen } = useAppWindowRender()
+  const { isOpen, onClickWindowOpen } = useAppWindowRender()
   return (
     <ThemeProvider theme={original}>
       <Layout>
         <Layout.WindowContainer>
           <BgIcon title="내 정보" imgObj={{ src: myComputer, alt: 'myComputer' }} onDoubleClick={() => onClickWindowOpen('myInfoWindow')} />
-          <BgIcon title="내 프로젝트" imgObj={{ src: networkIcon, alt: 'networkIcon' }} />
+          <BgIcon title="내 프로젝트" imgObj={{ src: networkIcon, alt: 'networkIcon' }} onDoubleClick={() => onClickWindowOpen('myProjectWindow')} />
           <BgIcon title="휴지통" imgObj={{ src: trashIcon, alt: 'trashicon' }} />
-          <MyProjectsWindow />
-          {/* <MyInfoWindow /> */}
+          {isOpen.myProjectWindow && <MyProjectsWindow />}
+          {isOpen.myInfoWindow && <MyInfoWindow />}
         </Layout.WindowContainer>
         <Layout.TaskBar />
         {/* 나중에 열고 닫는 컴포넌트 패턴으로 작업표시줄에 앱 구현 */}
