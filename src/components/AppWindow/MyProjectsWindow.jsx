@@ -5,8 +5,10 @@ import Markdown from 'react-markdown'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import { dataObj } from './data/dataObj'
 import { useState } from 'react'
+import useMediaQuery from 'utils/hook/useMediaQuery'
 
 export default function MyProjectsWindow() {
+  const viewPortSize = useMediaQuery()
   const { onClickWindowClose } = useAppWindowRender()
 
   const [curIdx, setCurIdx] = useState(0)
@@ -20,17 +22,19 @@ export default function MyProjectsWindow() {
     <AppWindow width="500px">
       <AppWindow.Header onClick={() => onClickWindowClose('myProjectWindow')}>내 프로젝트</AppWindow.Header>
       <AppWindow.Content>
-        <AppWindow.ContentSection height="400px">
-          <ImageFrame variant="field">
-            <AppWindow.Image src={dataObj[curIdx].imgSrc} width="100%" height="100%" />
-          </ImageFrame>
-          <SectionFrameContainer>
+        <AppWindow.ContentSection height={viewPortSize !== 'mobile' ? '400px' : '90%'}>
+          {viewPortSize !== 'mobile' && (
+            <ImageFrame variant="field">
+              <AppWindow.Image src={dataObj[curIdx].imgSrc} width="100%" height="100%" />
+            </ImageFrame>
+          )}
+          <SectionFrameContainer width={viewPortSize !== 'mobile' ? '68%' : '100%'}>
             <SectionFrame variant="inside" label={dataObj[curIdx].title}>
               <Markdown>{dataObj[curIdx].content}</Markdown>
             </SectionFrame>
-            <div style={{ height: '55%' }}>
+            <TabContainer height={viewPortSize !== 'mobile' ? '55%' : '100%'}>
               <AppWindow.Tab tabDataObj={dataObj[curIdx].tabDataObj} path={dataObj[curIdx].path} />
-            </div>
+            </TabContainer>
           </SectionFrameContainer>
         </AppWindow.ContentSection>
         <ButtonContainer>
@@ -61,7 +65,7 @@ const ButtonInner = styled.div`
   justify-content: space-between;
 `
 const SectionFrameContainer = styled.div`
-  width: 68%;
+  width: ${props => props.width};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -75,4 +79,8 @@ const SectionFrame = styled(GroupBox)`
 const ImageFrame = styled(Frame)`
   width: 30%;
   height: 100%;
+`
+
+const TabContainer = styled.div`
+  height: ${props => props.height};
 `

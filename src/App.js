@@ -8,7 +8,6 @@ import networkIcon from 'asset/images/network.png'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import MyProjectsWindow from 'components/AppWindow/MyProjectsWindow'
 import MyInfoWindow from 'components/AppWindow/MyInfoWindow'
-// import MyInfoWindow from 'components/AppWindow/MyInfoWindow'
 
 export default function App() {
   const { isOpen, onClickWindowOpen } = useAppWindowRender()

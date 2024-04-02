@@ -2,7 +2,7 @@
 
 import { Frame, Monitor } from 'react95'
 import AppWindow from './AppWindow'
-import myFace from 'asset/images/myFace.jpeg'
+import myFace from 'asset/images/myFace.jpg'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'

@@ -1,4 +1,3 @@
-import styles from './AppWindow.module.css'
 import React from 'react'
 import { Window } from 'react95'
 import styled from 'styled-components'
@@ -12,11 +11,7 @@ import ContentImg from './components/ContentImg'
 import ContentTab from './components/ContentTab'
 
 export default function AppWindow({ children, width }) {
-  return (
-    <AppWindowMain className={styles.boxContainer} width={width}>
-      {children}
-    </AppWindowMain>
-  )
+  return <AppWindowMain width={width}>{children}</AppWindowMain>
 }
 
 AppWindow.Header = AppWindowHeader
@@ -30,4 +25,14 @@ AppWindow.Tab = ContentTab
 
 const AppWindowMain = styled(Window)`
   width: ${props => props.width};
+  position: fixed;
+  top: 10%;
+  left: 30%;
+  z-index: 999;
+  @media screen and (max-width: 600px) {
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
 `

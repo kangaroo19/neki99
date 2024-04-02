@@ -1,7 +1,31 @@
 import mapleImg from 'asset/images/maple2.jpeg'
 import armyImg from 'asset/images/army.webp'
+import monsterImg from 'asset/images/monster.jpg'
 
 export const dataObj = [
+  {
+    title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>몬스터도감</div>,
+    content: `
+제목은 **몬스터 도감**이지만 사실상 **ToDoList**입니다.\n
+react-query와 react-hook-form을 배우고 학습하기 위해\n
+간단히 웹앱을 만들어 보았습니다.`,
+    imgSrc: monsterImg,
+    path: {
+      sitePath: null,
+      gitPath: 'https://github.com/kangaroo19/common_component',
+    },
+    tabDataObj: {
+      implementTab: `
+- 기본적인 CRUD 기능
+- 목업데이터 활용
+- 전체적인 퍼블리싱`,
+      skillTab: `
+- React
+- zustand
+- react-query
+- react-hook-form`,
+    },
+  },
   {
     title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>1vs1 같은그림찾기</div>,
     content: `
@@ -25,29 +49,6 @@ export const dataObj = [
   - JavaScript
   - Node.js
   `,
-    },
-  },
-  {
-    title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>몬스터도감</div>,
-    content: `
-제목은 **몬스터 도감**이지만 사실상 **ToDoList**입니다.\n
-react-query와 react-hook-form을 배우고 학습하기 위해\n
-간단히 웹앱을 만들어 보았습니다.`,
-    imgSrc: mapleImg,
-    path: {
-      sitePath: null,
-      gitPath: 'https://github.com/kangaroo19/common_component',
-    },
-    tabDataObj: {
-      implementTab: `
-- 기본적인 CRUD 기능
-- 목업데이터 활용
-- 전체적인 퍼블리싱`,
-      skillTab: `
-- React
-- zustand
-- react-query
-- react-hook-form`,
     },
   },
   {

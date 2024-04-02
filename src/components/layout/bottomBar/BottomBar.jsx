@@ -10,29 +10,33 @@ export default function BottomBar() {
   const { time, date } = useCurrentTimeHook() // 현재 시간 리턴하는 커스텀 훅
   const { isMenuOpen, onClickStartBtn } = useStartMenuStore() // 상태 공유위한 zustand 함수
   return (
-    <AppBar style={AppBarStyle}>
+    <AppBarContainer>
       <Toolbar style={ToolBarStyle}>
-        <Button onClick={onClickStartBtn} style={startBtnStyle}>
-          🐍Start
-        </Button>
+        <StartButton onClick={onClickStartBtn}>🐍Start</StartButton>
         <TaskContainer>
           <TaskBtn />
         </TaskContainer>
         <TimeDisplay time={time} date={date} />
       </Toolbar>
       {isMenuOpen && <StartMenu onClickStartBtn={onClickStartBtn} />}
-    </AppBar>
+    </AppBarContainer>
   )
 }
 
-const AppBarStyle = {
-  bottom: '0',
-  top: 'auto',
-  height: '50px',
-}
+const AppBarContainer = styled(AppBar)`
+  bottom: 0;
+  top: auto;
+  z-index: 1;
+  height: 50px;
+  @media screen and (max-width: 600px) {
+    height: 60px;
+  }
+`
+
 const ToolBarStyle = {
   justifyContent: 'space-between',
   alignItems: 'center',
+  height: '100%',
 }
 const TaskContainer = styled.div`
   width: 90%;
@@ -40,6 +44,12 @@ const TaskContainer = styled.div`
   display: flex;
   align-items: center;
 `
-const startBtnStyle = {
-  width: '6%',
-}
+const StartButton = styled(Button)`
+  width: 6%;
+  height: 100%;
+  font-size: 100%;
+  white-space: nowrap;
+  @media screen and (max-width: 600px) {
+    width: 30%;
+  }
+`
