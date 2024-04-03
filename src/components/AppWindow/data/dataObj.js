@@ -1,8 +1,32 @@
 import mapleImg from 'asset/images/maple2.jpeg'
 import armyImg from 'asset/images/army.webp'
 import monsterImg from 'asset/images/monster.jpg'
+import windowImg from 'asset/images/WIN98SE.jpg'
 
 export const dataObj = [
+  {
+    title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>개인 웹페이지</div>,
+    content: `
+예전에 바닐라 **자바스크립트** 및 **제이쿼리**로 만든 개인 포트폴리오 사이트를 \n
+**리액트**로 **마이그레이션** 하여 다시 만든 웹페이지 입니다.
+**react95** 라는 UI 라이브러리를 활용하여 만들었습니다.
+    `,
+    imgSrc: windowImg,
+    path: {
+      sitePath: 'http://neki99.kro.kr',
+      gitPath: 'https://github.com/kangaroo19/neki99',
+    },
+    tabDataObj: {
+      implementTab: `
+- 내 정보, 내 프로젝트에 대한 정보 
+- 전체적인 퍼블리싱`,
+      skillTab: `
+- React
+- zustand
+- React95
+- React-Draggable`,
+    },
+  },
   {
     title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>몬스터도감</div>,
     content: `
