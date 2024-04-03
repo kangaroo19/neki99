@@ -3,7 +3,8 @@ import { create } from 'zustand'
 export const useAppWindowRender = create(set => ({
   isOpen: {
     myInfoWindow: false,
-    myProjectWindow: true,
+    myProjectWindow: false,
+    trashCanWindow: true,
   },
 
   onClickWindowClose: name => {

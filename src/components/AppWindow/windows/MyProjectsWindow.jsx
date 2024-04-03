@@ -1,9 +1,9 @@
 import { Button, Frame, GroupBox } from 'react95'
-import AppWindow from './AppWindow'
+import AppWindow from '../AppWindow'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
-import { dataObj } from './data/dataObj'
+import { dataObj } from '../data/dataObj'
 import { useState } from 'react'
 import useMediaQuery from 'utils/hook/useMediaQuery'
 
