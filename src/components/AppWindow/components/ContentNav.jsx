@@ -27,8 +27,16 @@ const ButtonContainer = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    height: 70%;
+  }
 `
 
 const CustomButton = styled(Button)`
   width: 90%;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin-top: 3px;
+  }
 `

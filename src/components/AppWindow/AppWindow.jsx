@@ -33,6 +33,6 @@ const AppWindowMain = styled(Window)`
     top: 0;
     left: 0;
     width: 100vw !important;
-    height: 100vh !important;
+    height: 90vh !important;
   }
 `

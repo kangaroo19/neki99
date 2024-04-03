@@ -9,4 +9,7 @@ const ScorllViewContainer = styled(ScrollView)`
   width: 75%;
   height: 100%;
   background: beige;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `

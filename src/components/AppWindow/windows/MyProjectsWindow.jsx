@@ -23,11 +23,9 @@ export default function MyProjectsWindow() {
       <AppWindow.Header onClick={() => onClickWindowClose('myProjectWindow')}>내 프로젝트</AppWindow.Header>
       <AppWindow.Content>
         <AppWindow.ContentSection height={viewPortSize !== 'mobile' ? '400px' : '90%'}>
-          {viewPortSize !== 'mobile' && (
-            <ImageFrame variant="field">
-              <AppWindow.Image src={dataObj[curIdx].imgSrc} width="100%" height="100%" />
-            </ImageFrame>
-          )}
+          <ImageFrame variant="field">
+            <AppWindow.Image src={dataObj[curIdx].imgSrc} width="100%" height="100%" />
+          </ImageFrame>
           <SectionFrameContainer width={viewPortSize !== 'mobile' ? '68%' : '100%'}>
             <SectionFrame variant="inside" label={dataObj[curIdx].title}>
               <Markdown>{dataObj[curIdx].content}</Markdown>
@@ -79,6 +77,10 @@ const SectionFrame = styled(GroupBox)`
 const ImageFrame = styled(Frame)`
   width: 30%;
   height: 100%;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    height: 30%;
+  }
 `
 
 const TabContainer = styled.div`
