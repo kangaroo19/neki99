@@ -7,7 +7,7 @@ export default function TrashCanWindow() {
   const { onClickWindowClose } = useAppWindowRender()
 
   return (
-    <AppWindow width="500px">
+    <AppWindow width="500px" top="10%" left="30%">
       <AppWindow.Header onClick={() => onClickWindowClose('trashCanWindow')}>휴지통</AppWindow.Header>
       <AppWindow.Content>
         <AppWindow.ContentSection>

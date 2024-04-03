@@ -102,7 +102,7 @@ export default function MyInfoWindow() {
   return (
     <>
       {isOpen.myInfoWindow && (
-        <AppWindow width="700px">
+        <AppWindow width="700px" top="10%" left="10%">
           <AppWindow.Header onClick={() => onClickWindowClose('myInfoWindow')}>내 정보</AppWindow.Header>
           <AppWindow.Content>
             <AppWindow.ContentTitle>프론트엔드 개발자가 되고싶은 천재현입니다.</AppWindow.ContentTitle>

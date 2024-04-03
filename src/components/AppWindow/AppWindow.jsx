@@ -14,11 +14,13 @@ import ContentTab from './components/ContentTab'
 import Draggable from 'react-draggable'
 import useMediaQuery from 'utils/hook/useMediaQuery'
 
-export default function AppWindow({ children, width }) {
+export default function AppWindow({ children, width, top, left }) {
   const viewPortSize = useMediaQuery()
   return (
     <Draggable handle=".handle" disabled={viewPortSize === 'mobile' ? true : false}>
-      <AppWindowMain width={width}>{children}</AppWindowMain>
+      <AppWindowMain width={width} top={top} left={left}>
+        {children}
+      </AppWindowMain>
     </Draggable>
   )
 }
@@ -35,8 +37,8 @@ AppWindow.Tab = ContentTab
 const AppWindowMain = styled(Window)`
   width: ${props => props.width};
   position: fixed;
-  top: 10%;
-  left: 30%;
+  top: ${props => props.top};
+  left: ${props => props.left};
   z-index: 999;
   @media screen and (max-width: 600px) {
     top: 0;

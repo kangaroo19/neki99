@@ -19,7 +19,7 @@ export default function MyProjectsWindow() {
     setCurIdx(prev => prev - 1)
   }
   return (
-    <AppWindow width="500px">
+    <AppWindow width="500px" top="10%" left="58%">
       <AppWindow.Header onClick={() => onClickWindowClose('myProjectWindow')}>내 프로젝트</AppWindow.Header>
       <AppWindow.Content>
         <AppWindow.ContentSection height={viewPortSize !== 'mobile' ? '400px' : '90%'}>
