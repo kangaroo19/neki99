@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react'
 import { Window } from 'react95'
 import styled from 'styled-components'
@@ -9,9 +11,16 @@ import ContentScrollView from './components/ContentScrollView'
 import ContentNav from './components/ContentNav'
 import ContentImg from './components/ContentImg'
 import ContentTab from './components/ContentTab'
+import Draggable from 'react-draggable'
+import useMediaQuery from 'utils/hook/useMediaQuery'
 
 export default function AppWindow({ children, width }) {
-  return <AppWindowMain width={width}>{children}</AppWindowMain>
+  const viewPortSize = useMediaQuery()
+  return (
+    <Draggable handle=".handle" disabled={viewPortSize === 'mobile' ? true : false}>
+      <AppWindowMain width={width}>{children}</AppWindowMain>
+    </Draggable>
+  )
 }
 
 AppWindow.Header = AppWindowHeader
