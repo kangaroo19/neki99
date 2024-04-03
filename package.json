@@ -30,7 +30,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://kangaroo19.github.io/neki99",
+  "homepage": "http://neki99.kro.kr/",
   "eslintConfig": {
     "extends": [
       "react-app",
