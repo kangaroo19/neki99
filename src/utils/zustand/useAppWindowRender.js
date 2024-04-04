@@ -5,6 +5,7 @@ export const useAppWindowRender = create(set => ({
     myInfoWindow: true,
     myProjectWindow: true,
     trashCanWindow: false,
+    guestBookWindow: false,
   },
 
   onClickWindowClose: name => {
