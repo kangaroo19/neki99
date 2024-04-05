@@ -1,8 +1,12 @@
+/* eslint-disable */
+
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import AppWindow from '../AppWindow'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import { WindowContent } from 'react95'
+import { doc, getDoc } from 'firebase/firestore'
+import { app } from 'firebase'
 
 const dataObj = [
   { content: '잘봤어요~~~~', writer: '지존123', createdAt: '2020-03-23 23:12:02' },
@@ -16,9 +20,15 @@ const dataObj = [
 
 export default function GuestBookWindow() {
   const { onClickWindowClose } = useAppWindowRender()
-
+  console.log(app)
+  // const fetchData = async () => {
+  //   const docRef = doc(db, 'guestbook', 'item')
+  //   const docSnap = await getDoc(docRef)
+  //   return docSnap
+  // }
+  // fetchData()
   return (
-    <AppWindow width="800px">
+    <AppWindow width="800px" top="5%" left="10%">
       <AppWindow.Header onClick={() => onClickWindowClose('guestBookWindow')}>방명록</AppWindow.Header>
       <AppWindow.HeadMenu />
       <AppWindow.Content>
