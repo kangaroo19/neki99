@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.6191fd29.css",
-    "main.js": "/static/js/main.cbaf9dd9.js",
+    "main.js": "/static/js/main.199e23ec.js",
     "static/media/Galmuri9.ttf": "/static/media/Galmuri9.466b3fef5f9340d55cfb.ttf",
     "static/media/army.webp": "/static/media/army.c488988e3d99dbaa0fbc.webp",
     "static/media/myFace.jpg": "/static/media/myFace.d8f61787ab8b8948947c.jpg",
@@ -13,10 +13,10 @@
     "static/media/banner.PNG": "/static/media/banner.50c4d09d4e61bd6ce91d.PNG",
     "index.html": "/index.html",
     "main.6191fd29.css.map": "/static/css/main.6191fd29.css.map",
-    "main.cbaf9dd9.js.map": "/static/js/main.cbaf9dd9.js.map"
+    "main.199e23ec.js.map": "/static/js/main.199e23ec.js.map"
   },
   "entrypoints": [
     "static/css/main.6191fd29.css",
-    "static/js/main.cbaf9dd9.js"
+    "static/js/main.199e23ec.js"
   ]
 }
