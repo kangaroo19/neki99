@@ -14,6 +14,9 @@ import ContentTab from './components/ContentTab'
 import Draggable from 'react-draggable'
 import useMediaQuery from 'utils/hook/useMediaQuery'
 import HeaderMenu from './components/HeaderMenu'
+import AppWindowFooter from './components/AppWindowFooter'
+import AppWindowInput from './components/AppWindowInput'
+import AppWindowButton from './components/AppWindowButton'
 
 export default function AppWindow({ children, width, top, left }) {
   const viewPortSize = useMediaQuery()
@@ -35,6 +38,9 @@ AppWindow.Nav = ContentNav
 AppWindow.Image = ContentImg
 AppWindow.Tab = ContentTab
 AppWindow.HeadMenu = HeaderMenu
+AppWindow.Footer = AppWindowFooter
+AppWindow.Input = AppWindowInput
+AppWindow.Button = AppWindowButton
 
 const AppWindowMain = styled(Window)`
   width: ${props => props.width};

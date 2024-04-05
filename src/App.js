@@ -10,7 +10,7 @@ import MyProjectsWindow from 'components/AppWindow/windows/MyProjectsWindow'
 import MyInfoWindow from 'components/AppWindow/windows/MyInfoWindow'
 import TrashCanWindow from 'components/AppWindow/windows/TrashCanWindow'
 import notePadIcon from 'asset/images/notepad.png'
-import AlertWindow from 'components/AppWindow/windows/AlertWindow'
+import GuestBookWindow from 'components/AppWindow/windows/GuestBookWindow'
 
 export default function App() {
   const { isOpen, onClickWindowOpen } = useAppWindowRender()
@@ -25,7 +25,7 @@ export default function App() {
           {isOpen.myProjectWindow && <MyProjectsWindow />}
           {isOpen.myInfoWindow && <MyInfoWindow />}
           {isOpen.trashCanWindow && <TrashCanWindow />}
-          {isOpen.guestBookWindow && <AlertWindow text="서비스 준비 중 입니다..." />}
+          {isOpen.guestBookWindow && <GuestBookWindow />}
         </Layout.WindowContainer>
         <Layout.TaskBar />
         {/* 나중에 열고 닫는 컴포넌트 패턴으로 작업표시줄에 앱 구현 */}
