@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
-import { useGuestBookQuery } from 'utils/query/useGuestBookQuery'
+import { useGuestBookMutation, useGuestBookQuery } from 'utils/query/useGuestBookQuery'
 import AppWindow from '../AppWindow'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
@@ -11,14 +11,20 @@ import getCurrentDate from 'utils/getCurrentDate'
 
 export default function GuestBookWindow() {
   const { onClickWindowClose } = useAppWindowRender()
-  const { data, isLoading } = useGuestBookQuery()
+  const { refetch, data, isLoading } = useGuestBookQuery()
+  const { mutate } = useGuestBookMutation()
   const { register, handleSubmit, reset } = useForm()
   if (isLoading) {
     return <div></div>
   }
   const onClickSubmitButton = data => {
-    // 여기에 post 요청
     data.createdAt = getCurrentDate() // 현재 시간 createdAt 프로퍼티에 할당
+    mutate(data, {
+      onSuccess: () => {
+        reset({ content: '', writer: '' })
+        refetch()
+      },
+    })
   }
   return (
     <AppWindow width="800px" top="5%" left="10%">
