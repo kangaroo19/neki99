@@ -1,56 +1,55 @@
 /* eslint-disable */
 
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
+import { useGuestBookQuery } from 'utils/query/useGuestBookQuery'
 import AppWindow from '../AppWindow'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import { WindowContent } from 'react95'
-import { doc, getDoc } from 'firebase/firestore'
-import { app } from 'firebase'
-
-const dataObj = [
-  { content: '잘봤어요~~~~', writer: '지존123', createdAt: '2020-03-23 23:12:02' },
-  { content: '잘봤어요~~~~', writer: '지존123', createdAt: '2020-03-23 23:12:02' },
-  { content: '잘봤어요~~~~', writer: '지존123', createdAt: '2020-03-23 23:12:02' },
-  { content: '잘봤어요~~~~', writer: '지존123', createdAt: '2020-03-23 23:12:02' },
-  { content: '잘봤어요~~~~', writer: '지존123', createdAt: '2020-03-23 23:12:02' },
-  { content: '잘봤어요~~~~', writer: '지존123', createdAt: '2020-03-23 23:12:02' },
-  { content: '잘봤어요~~~~', writer: '지존123', createdAt: '2020-03-23 23:12:02' },
-]
+import { useForm } from 'react-hook-form'
+import getCurrentDate from 'utils/getCurrentDate'
 
 export default function GuestBookWindow() {
   const { onClickWindowClose } = useAppWindowRender()
-  console.log(app)
-  // const fetchData = async () => {
-  //   const docRef = doc(db, 'guestbook', 'item')
-  //   const docSnap = await getDoc(docRef)
-  //   return docSnap
-  // }
-  // fetchData()
+  const { data, isLoading } = useGuestBookQuery()
+  const { register, handleSubmit, reset } = useForm()
+  if (isLoading) {
+    return <div></div>
+  }
+  const onClickSubmitButton = data => {
+    // 여기에 post 요청
+    data.createdAt = getCurrentDate() // 현재 시간 createdAt 프로퍼티에 할당
+  }
   return (
     <AppWindow width="800px" top="5%" left="10%">
       <AppWindow.Header onClick={() => onClickWindowClose('guestBookWindow')}>방명록</AppWindow.Header>
       <AppWindow.HeadMenu />
       <AppWindow.Content>
-        <AppWindow.ContentSection height="300px">
+        <AppWindow.ContentSection height="200px">
           <AppWindow.ScrollView width="100%" background="white">
-            {dataObj.map(item => (
-              <GuestBookItemContainer>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span>{item.writer}</span>
-                  <span>{item.createdAt}</span>
-                </div>
-                <Markdown>{item.content}</Markdown>
-              </GuestBookItemContainer>
-            ))}
+            {/* 방명록 리스트들 랜더링 추후 컴포넌트 따로 빼는게 가독성 면에서 더 나을듯한.. */}
+            {data.map(item => {
+              return (
+                <GuestBookItemContainer>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span>{item.writer}</span>
+                    <span>{item.createdAt}</span>
+                  </div>
+                  <Markdown>{item.content}</Markdown>
+                </GuestBookItemContainer>
+              )
+            })}
           </AppWindow.ScrollView>
         </AppWindow.ContentSection>
       </AppWindow.Content>
       <AppWindow.Footer>
-        <AppWindow.Input width="50%" placeholder="이름을 작성해 주세요" />
-        <AppWindow.Input width="100%" rows={4} placeholder="방명록을 작성해 주세요" multiline />
+        {/* 방명록관련 인풋필드 및 버튼 */}
+        <AppWindow.Input width="50%" placeholder="이름을 작성해 주세요" registerFn={register('writer')} />
+        <AppWindow.Input width="100%" rows={4} placeholder="방명록을 작성해 주세요" multiline registerFn={register('content')} />
         <SubmitButtonContainer>
-          <AppWindow.Button width="20%">등록</AppWindow.Button>
+          <AppWindow.Button width="20%" onClick={handleSubmit(onClickSubmitButton)}>
+            등록
+          </AppWindow.Button>
         </SubmitButtonContainer>
       </AppWindow.Footer>
     </AppWindow>

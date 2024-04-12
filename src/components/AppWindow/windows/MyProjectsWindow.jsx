@@ -21,8 +21,8 @@ export default function MyProjectsWindow() {
   return (
     <AppWindow width="500px" top="10%" left="58%">
       <AppWindow.Header onClick={() => onClickWindowClose('myProjectWindow')}>내 프로젝트</AppWindow.Header>
-      <AppWindow.Content>
-        <AppWindow.ContentSection height={viewPortSize !== 'mobile' ? '400px' : '90%'}>
+      <AppWindow.Content height="80%">
+        <AppWindow.ContentSection height={viewPortSize !== 'mobile' ? '400px' : '100%'}>
           <ImageFrame variant="field">
             <AppWindow.Image src={dataObj[curIdx].imgSrc} width="100%" height="100%" />
           </ImageFrame>

@@ -1,9 +1,9 @@
 import { Button } from 'react95'
 import styled from 'styled-components'
 
-export default function AppWindowButton({ children, width, height }) {
+export default function AppWindowButton({ onClick, children, width, height, type = 'button' }) {
   return (
-    <ButtonStyled width={width} height={height}>
+    <ButtonStyled onClick={onClick} width={width} height={height} type={type}>
       {children}
     </ButtonStyled>
   )
