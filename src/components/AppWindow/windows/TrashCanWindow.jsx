@@ -4,10 +4,9 @@ import BgIcon from 'components/bgIcon/BgIcon'
 import fileIcon from 'asset/images/fileIcon.png'
 
 export default function TrashCanWindow() {
-  const { onClickWindowClose } = useAppWindowRender()
-
+  const { onClickWindowClose, windowRenderObj } = useAppWindowRender()
   return (
-    <AppWindow width="500px" top="10%" left="30%">
+    <AppWindow width="500px" top="10%" left="30%" zIndex={windowRenderObj.trashCanWindow.zIndexValue}>
       <AppWindow.Header onClick={() => onClickWindowClose('trashCanWindow')}>휴지통</AppWindow.Header>
       <AppWindow.HeadMenu />
       <AppWindow.Content>

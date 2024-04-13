@@ -14,9 +14,8 @@ import GuestBookWindow from 'components/AppWindow/windows/GuestBookWindow'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 export default function App() {
-  const { isOpen, onClickWindowOpen } = useAppWindowRender()
+  const { windowRenderObj, onClickWindowOpen } = useAppWindowRender()
   const queryClient = new QueryClient()
-
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={original}>
@@ -32,10 +31,10 @@ export default function App() {
             />
             <BgIcon title="방명록" imgObj={{ src: notePadIcon, alt: 'trashicon' }} onDoubleClick={() => onClickWindowOpen('guestBookWindow')} border="1px solid rgb(0, 128, 128)" color="white" />
             <BgIcon title="휴지통" imgObj={{ src: trashIcon, alt: 'trashicon' }} onDoubleClick={() => onClickWindowOpen('trashCanWindow')} border="1px solid rgb(0, 128, 128)" color="white" />
-            {isOpen.myProjectWindow && <MyProjectsWindow />}
-            {isOpen.myInfoWindow && <MyInfoWindow />}
-            {isOpen.trashCanWindow && <TrashCanWindow />}
-            {isOpen.guestBookWindow && <GuestBookWindow />}
+            {windowRenderObj.myInfoWindow.isOpen && <MyInfoWindow />}
+            {windowRenderObj.myProjectWindow.isOpen && <MyProjectsWindow />}
+            {windowRenderObj.trashCanWindow.isOpen && <TrashCanWindow />}
+            {windowRenderObj.guestBookWindow.isOpen && <GuestBookWindow />}
           </Layout.WindowContainer>
           <Layout.TaskBar />
           {/* 나중에 열고 닫는 컴포넌트 패턴으로 작업표시줄에 앱 구현 */}

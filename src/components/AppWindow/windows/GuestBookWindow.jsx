@@ -10,13 +10,10 @@ import { useForm } from 'react-hook-form'
 import getCurrentDate from 'utils/getCurrentDate'
 
 export default function GuestBookWindow() {
-  const { onClickWindowClose } = useAppWindowRender()
+  const { onClickWindowClose, windowRenderObj } = useAppWindowRender()
   const { refetch, data, isLoading } = useGuestBookQuery()
   const { mutate } = useGuestBookMutation()
   const { register, handleSubmit, reset } = useForm()
-  if (isLoading) {
-    return <div></div>
-  }
   const onClickSubmitButton = data => {
     data.createdAt = getCurrentDate() // 현재 시간 createdAt 프로퍼티에 할당
     mutate(data, {
@@ -27,24 +24,25 @@ export default function GuestBookWindow() {
     })
   }
   return (
-    <AppWindow width="800px" top="5%" left="10%">
+    <AppWindow width="800px" top="5%" left="10%" zIndex={windowRenderObj.guestBookWindow.zIndexValue}>
       <AppWindow.Header onClick={() => onClickWindowClose('guestBookWindow')}>방명록</AppWindow.Header>
       <AppWindow.HeadMenu />
       <AppWindow.Content>
         <AppWindow.ContentSection height="200px">
           <AppWindow.ScrollView width="100%" background="white">
             {/* 방명록 리스트들 랜더링 추후 컴포넌트 따로 빼는게 가독성 면에서 더 나을듯한.. */}
-            {data.map(item => {
-              return (
-                <GuestBookItemContainer>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>{item.writer}</span>
-                    <span>{item.createdAt}</span>
-                  </div>
-                  <Markdown>{item.content}</Markdown>
-                </GuestBookItemContainer>
-              )
-            })}
+            {!isLoading &&
+              data.map(item => {
+                return (
+                  <GuestBookItemContainer>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span>{item.writer}</span>
+                      <span>{item.createdAt}</span>
+                    </div>
+                    <Markdown>{item.content}</Markdown>
+                  </GuestBookItemContainer>
+                )
+              })}
           </AppWindow.ScrollView>
         </AppWindow.ContentSection>
       </AppWindow.Content>

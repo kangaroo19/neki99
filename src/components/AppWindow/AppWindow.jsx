@@ -18,11 +18,11 @@ import AppWindowFooter from './components/AppWindowFooter'
 import AppWindowInput from './components/AppWindowInput'
 import AppWindowButton from './components/AppWindowButton'
 
-export default function AppWindow({ children, width, top, left }) {
+export default function AppWindow({ children, width, top, left, zIndex=0 }) {
   const viewPortSize = useMediaQuery()
   return (
     <Draggable handle=".handle" disabled={viewPortSize === 'mobile' ? true : false}>
-      <AppWindowMain width={width} top={top} left={left}>
+      <AppWindowMain width={width} top={top} left={left} zIndex={zIndex}>
         {children}
       </AppWindowMain>
     </Draggable>
@@ -47,7 +47,7 @@ const AppWindowMain = styled(Window)`
   position: fixed;
   top: ${props => props.top};
   left: ${props => props.left};
-  z-index: 999;
+  z-index: ${props => props.zIndex};
   @media screen and (max-width: 600px) {
     top: 0;
     left: 0;

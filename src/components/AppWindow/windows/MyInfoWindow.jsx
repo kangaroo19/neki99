@@ -98,32 +98,28 @@ const markdownObj = [
 ]
 
 export default function MyInfoWindow() {
-  const { isOpen, onClickWindowClose } = useAppWindowRender()
+  const { onClickWindowClose, windowRenderObj } = useAppWindowRender()
   return (
-    <>
-      {isOpen.myInfoWindow && (
-        <AppWindow width="700px" top="10%" left="10%">
-          <AppWindow.Header onClick={() => onClickWindowClose('myInfoWindow')}>내 정보</AppWindow.Header>
-          <AppWindow.Content>
-            <AppWindow.ContentTitle text="프론트엔드 개발자가 되고싶은 천재현 입니다." />
-            <AppWindow.ContentSection height="300px">
-              <AppWindow.ScrollView width="75%">
-                <AppWindow.Image src={banner} alt="아스키아트" width="100%" />
-                <MonitorContainer>
-                  <Img src={myFace} alt="myFace" />
-                </MonitorContainer>
-                {markdownObj.map(item => (
-                  <>
-                    {item.title && <MarkdownTitle key={item.id}>{item.title}</MarkdownTitle>}
-                    <MarkdownContent key={item.id}>{item.content}</MarkdownContent>
-                  </>
-                ))}
-              </AppWindow.ScrollView>
-              <AppWindow.Nav />
-            </AppWindow.ContentSection>
-          </AppWindow.Content>
-        </AppWindow>
-      )}
-    </>
+    <AppWindow width="700px" top="10%" left="10%" zIndex={windowRenderObj.myInfoWindow.zIndexValue}>
+      <AppWindow.Header onClick={() => onClickWindowClose('myInfoWindow')}>내 정보</AppWindow.Header>
+      <AppWindow.Content>
+        <AppWindow.ContentTitle text="프론트엔드 개발자가 되고싶은 천재현 입니다." />
+        <AppWindow.ContentSection height="300px">
+          <AppWindow.ScrollView width="75%">
+            <AppWindow.Image src={banner} alt="아스키아트" width="100%" />
+            <MonitorContainer>
+              <Img src={myFace} alt="myFace" />
+            </MonitorContainer>
+            {markdownObj.map(item => (
+              <>
+                {item.title && <MarkdownTitle key={item.id}>{item.title}</MarkdownTitle>}
+                <MarkdownContent key={item.id}>{item.content}</MarkdownContent>
+              </>
+            ))}
+          </AppWindow.ScrollView>
+          <AppWindow.Nav />
+        </AppWindow.ContentSection>
+      </AppWindow.Content>
+    </AppWindow>
   )
 }
