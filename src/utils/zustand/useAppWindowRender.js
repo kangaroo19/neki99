@@ -10,7 +10,7 @@ export const useAppWindowRender = create(set => ({
     },
     myProjectWindow: {
       zIndexValue: 0,
-      isOpen: false,
+      isOpen: true,
     },
     trashCanWindow: {
       zIndexValue: 0,
@@ -22,7 +22,6 @@ export const useAppWindowRender = create(set => ({
     },
   },
   onClickWindow: name => {
-    console.log(123)
     set(state => {
       const newState = {
         ...state,
