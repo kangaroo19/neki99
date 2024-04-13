@@ -98,9 +98,9 @@ const markdownObj = [
 ]
 
 export default function MyInfoWindow() {
-  const { onClickWindowClose, windowRenderObj } = useAppWindowRender()
+  const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   return (
-    <AppWindow width="700px" top="10%" left="10%" zIndex={windowRenderObj.myInfoWindow.zIndexValue}>
+    <AppWindow width="700px" top="10%" left="10%" zIndex={windowRenderObj.myInfoWindow.zIndexValue} onClick={() => onClickWindow('myInfoWindow')}>
       <AppWindow.Header onClick={() => onClickWindowClose('myInfoWindow')}>내 정보</AppWindow.Header>
       <AppWindow.Content>
         <AppWindow.ContentTitle text="프론트엔드 개발자가 되고싶은 천재현 입니다." />

@@ -21,7 +21,20 @@ export const useAppWindowRender = create(set => ({
       isOpen: false,
     },
   },
-
+  onClickWindow: name => {
+    console.log(123)
+    set(state => {
+      const newState = {
+        ...state,
+        zIndexTemp: state.zIndexTemp + 1, // zIndexTemp 증가
+        windowRenderObj: {
+          ...state.windowRenderObj,
+          [name]: { ...state.windowRenderObj[name], zIndexValue: state.zIndexTemp },
+        },
+      }
+      return newState
+    })
+  },
   onClickWindowClose: name => {
     set(state => ({
       windowRenderObj: {

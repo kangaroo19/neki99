@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form'
 import getCurrentDate from 'utils/getCurrentDate'
 
 export default function GuestBookWindow() {
-  const { onClickWindowClose, windowRenderObj } = useAppWindowRender()
+  const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   const { refetch, data, isLoading } = useGuestBookQuery()
   const { mutate } = useGuestBookMutation()
   const { register, handleSubmit, reset } = useForm()
@@ -24,7 +24,7 @@ export default function GuestBookWindow() {
     })
   }
   return (
-    <AppWindow width="800px" top="5%" left="10%" zIndex={windowRenderObj.guestBookWindow.zIndexValue}>
+    <AppWindow width="800px" top="5%" left="10%" zIndex={windowRenderObj.guestBookWindow.zIndexValue} onClick={() => onClickWindow('guestBookWindow')}>
       <AppWindow.Header onClick={() => onClickWindowClose('guestBookWindow')}>방명록</AppWindow.Header>
       <AppWindow.HeadMenu />
       <AppWindow.Content>

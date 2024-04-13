@@ -18,11 +18,11 @@ import AppWindowFooter from './components/AppWindowFooter'
 import AppWindowInput from './components/AppWindowInput'
 import AppWindowButton from './components/AppWindowButton'
 
-export default function AppWindow({ children, width, top, left, zIndex=0 }) {
+export default function AppWindow({ children, width, top, left, zIndex = 0, onClick   }) {
   const viewPortSize = useMediaQuery()
   return (
     <Draggable handle=".handle" disabled={viewPortSize === 'mobile' ? true : false}>
-      <AppWindowMain width={width} top={top} left={left} zIndex={zIndex}>
+      <AppWindowMain width={width} top={top} left={left} zIndex={zIndex} onClick={onClick}>
         {children}
       </AppWindowMain>
     </Draggable>
