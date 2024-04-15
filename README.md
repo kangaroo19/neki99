@@ -8,12 +8,14 @@
 
 
 ## 사용한 라이브러리
-- react95 : 윈도우95 스타일로 작업하기 위해 사용한 UI 라이브러리 입니다.
-- styled-component : 스타일 재사용성을 극대화하고 싶은 마음에 사용하였습니다.
-- zustand : 현재 윈도우 창에 대한 상태값(윈도우 열린상태인지 아닌지)을 관리하는데 쓰였습니다.
-- react-draggable : 윈도우 창의 dnd 적용을 위해 사용하였습니다.
-- react-markdown : 각 윈도우 창에 들어갈 텍스트를 마크다운 형식으로 적용하기 위함 입니다.
-- react-type-animation : 텍스트 애니메이션 적용을 위해 사용하였습니다.
+- **react95** : 윈도우95 스타일로 작업하기 위해 사용한 UI 라이브러리 입니다.
+- **styled-component** : 스타일 재사용성을 극대화하고 싶은 마음에 사용하였습니다.
+- **zustand** : 현재 윈도우 창에 대한 상태값(윈도우 열린상태인지 아닌지)을 관리하는데 쓰였습니다.
+- **react-draggable** : 윈도우 창의 dnd 적용을 위해 사용하였습니다.
+- **react-markdown** : 각 윈도우 창에 들어갈 텍스트를 마크다운 형식으로 적용하기 위함 입니다.
+- **react-type-animation** : 텍스트 애니메이션 적용을 위해 사용하였습니다.
+- **react-hook-form** : 방명록 기능 추가에 따른 인풋필드 요소의 값 관련 코드 처리위해 사용 (2024/04/13)
+- **firebase** : 방명록 기능 추가에 따른 firebase의 firestore 사용 현재는 간단히 방명록 조회와 생성 두 가지 기능만 존재 (2024/04/13)
 
 ## 윈도우 창 관련 코드
 
@@ -69,7 +71,11 @@ AppWindow.Tab = ContentTab
 
 지금까지 진행했던 개인 프로젝트에 대한 설명과 사용기술 등을 모아놓은 윈도우 창입니다.
 
-## 방명록 (작업중)
+## 방명록 (2024/04/13 추가)
+![guestbook](https://github.com/kangaroo19/neki99/assets/86513078/a418898a-1a18-4696-ab4b-6879eac54ee6)
+
+firebase, react-hook-form 을 사용하여 간단한 방명록 기능을 추가하였습니다.
+
 
 ## 모바일 적응형
 ![image (2)](https://github.com/kangaroo19/neki99/assets/86513078/e370c3ce-7d45-4f53-b509-8a386ac3ec7a)
