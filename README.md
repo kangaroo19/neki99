@@ -75,3 +75,6 @@ AppWindow.Tab = ContentTab
 ![image (2)](https://github.com/kangaroo19/neki99/assets/86513078/e370c3ce-7d45-4f53-b509-8a386ac3ec7a)
 
 이전 웹페이지와 달리 현 프로젝트는 모바일을 고려하여 작업하였습니다.
+
+## 업데이트
+- 방명록 기능 추가 (2024/04/15)
