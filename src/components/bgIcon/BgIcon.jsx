@@ -7,7 +7,7 @@ export default function BgIcon({ title, imgObj, onDoubleClick, color, border }) 
   return (
     <IconContainer onClick={viewPortSize === 'mobile' ? onDoubleClick : null} onDoubleClick={viewPortSize !== 'mobile' && onDoubleClick} color={color} border={border}>
       <IconImage src={imgObj.src} alt={imgObj.alt} />
-      <div>{title}</div>
+      <IconText>{title}</IconText>
     </IconContainer>
   )
 }
@@ -24,8 +24,18 @@ const IconContainer = styled.div`
   &:active {
     border: 1px dotted black;
   }
+  @media screen and (max-width: 600px) {
+    width: 90px;
+    height: 80px;
+  }
 `
 const IconImage = styled.img`
   width: 70%;
   height: 70%;
+`
+
+const IconText = styled.div`
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
 `

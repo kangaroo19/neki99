@@ -7,4 +7,8 @@ export default function AppWindowContent({ children, height }) {
 
 const WindowContentStyle = styled(WindowContent)`
   height: ${props => props.height};
+  padding: auto 1vw;
+  @media screen and (max-width: 600px) {
+    padding: 0 1vw;
+  }
 `

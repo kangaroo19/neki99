@@ -20,4 +20,6 @@ const Title = styled(TypeAnimation)`
   display: block;
   font-size: 1.8rem;
   padding-bottom: 10px;
+  text-align: center;
+  
 `

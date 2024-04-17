@@ -26,8 +26,8 @@ export default function BottomBar() {
 const AppBarContainer = styled(AppBar)`
   bottom: 0;
   top: auto;
-  z-index: 1;
-  height: 50px;
+  z-index: 0;
+  height: 7vh;
   @media screen and (max-width: 600px) {
     height: 60px;
   }

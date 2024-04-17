@@ -15,6 +15,7 @@ export default function GuestBookWindow() {
   const { mutate } = useGuestBookMutation()
   const { register, handleSubmit, reset } = useForm()
   const onClickSubmitButton = data => {
+    if (data.writer === '' || data.content === '') return
     data.createdAt = getCurrentDate() // 현재 시간 createdAt 프로퍼티에 할당
     mutate(data, {
       onSuccess: () => {

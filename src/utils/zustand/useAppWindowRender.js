@@ -2,22 +2,26 @@ import { create } from 'zustand'
 
 export const useAppWindowRender = create(set => ({
   // 수정된 부분: get 함수 제거
-  zIndexTemp: 1,
+  zIndexTemp: 1, // 어떤 윈도우 클릭하거나 열때 해당 윈도우 zindex 가장 높은 값으로 설정 위함
   windowRenderObj: {
     myInfoWindow: {
-      zIndexValue: 0,
-      isOpen: true,
+      zIndexValue: 3, // 이 윈도우창의 zIndex 속성에 할당할 값
+      isOpen: false, // 열려있는 상태인지 아닌지
     },
     myProjectWindow: {
-      zIndexValue: 0,
-      isOpen: true,
+      zIndexValue: 2,
+      isOpen: false,
     },
     trashCanWindow: {
-      zIndexValue: 0,
+      zIndexValue: 2,
       isOpen: false,
     },
     guestBookWindow: {
-      zIndexValue: 0,
+      zIndexValue: 2,
+      isOpen: false,
+    },
+    blogWindow: {
+      zIndexValue: 2,
       isOpen: false,
     },
   },

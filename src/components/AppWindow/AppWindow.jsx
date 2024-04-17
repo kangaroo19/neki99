@@ -17,12 +17,13 @@ import HeaderMenu from './components/HeaderMenu'
 import AppWindowFooter from './components/AppWindowFooter'
 import AppWindowInput from './components/AppWindowInput'
 import AppWindowButton from './components/AppWindowButton'
+import AppWindowSelect from './components/AppWindowSelect'
 
-export default function AppWindow({ children, width, top, left, zIndex = 0, onClick   }) {
+export default function AppWindow({ children, width, height, top, left, zIndex = 0, onClick }) {
   const viewPortSize = useMediaQuery()
   return (
     <Draggable handle=".handle" disabled={viewPortSize === 'mobile' ? true : false}>
-      <AppWindowMain width={width} top={top} left={left} zIndex={zIndex} onClick={onClick}>
+      <AppWindowMain width={width} height={height} top={top} left={left} zIndex={zIndex} onClick={onClick}>
         {children}
       </AppWindowMain>
     </Draggable>
@@ -41,9 +42,11 @@ AppWindow.HeadMenu = HeaderMenu
 AppWindow.Footer = AppWindowFooter
 AppWindow.Input = AppWindowInput
 AppWindow.Button = AppWindowButton
+AppWindow.Select = AppWindowSelect
 
 const AppWindowMain = styled(Window)`
   width: ${props => props.width};
+  height: ${props => props.height};
   position: fixed;
   top: ${props => props.top};
   left: ${props => props.left};
@@ -53,5 +56,6 @@ const AppWindowMain = styled(Window)`
     left: 0;
     width: 100vw !important;
     height: 90vh !important;
+    padding: 0 !important;
   }
 `
