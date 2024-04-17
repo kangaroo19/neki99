@@ -41,7 +41,7 @@ export default function App() {
             {windowRenderObj.myProjectWindow.isOpen && <MyProjectsWindow />}
             {windowRenderObj.trashCanWindow.isOpen && <TrashCanWindow />}
             {windowRenderObj.guestBookWindow.isOpen && <GuestBookWindow />}
-            {windowRenderObj.alertWindow.isOpen && <AlertWindow text="서비스 준비 중 입니다.."/>}
+            {windowRenderObj.alertWindow.isOpen && <AlertWindow text="블로그 서비스는 준비 중 입니다.."/>}
           </Layout.WindowContainer>
           <Layout.TaskBar />
           {/* 나중에 열고 닫는 컴포넌트 패턴으로 작업표시줄에 앱 구현 */}
