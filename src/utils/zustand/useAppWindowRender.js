@@ -24,6 +24,10 @@ export const useAppWindowRender = create(set => ({
       zIndexValue: 2,
       isOpen: false,
     },
+    alertWindow: {
+      zIndexValue: 3, // 이 윈도우창의 zIndex 속성에 할당할 값
+      isOpen: false, // 열려있는 상태인지 아닌지
+    },
   },
   onClickWindow: name => {
     set(state => {

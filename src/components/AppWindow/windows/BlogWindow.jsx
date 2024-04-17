@@ -5,7 +5,6 @@ import { GroupBox } from 'react95'
 
 export default function BlogWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
-  console.log(windowRenderObj)
   return (
     <AppWindow width="100vw" height="93vh" top="0%" left="0%" zIndex={windowRenderObj.blogWindow.zIndexValue} onClick={() => onClickWindow('blogWindow')}>
       <AppWindow.Header onClick={() => onClickWindowClose('blogWindow')}>블로그</AppWindow.Header>
