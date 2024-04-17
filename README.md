@@ -76,6 +76,7 @@ AppWindow.Tab = ContentTab
 
 firebase, react-hook-form 을 사용하여 간단한 방명록 기능을 추가하였습니다.
 
+## 개인 블로그 (작업중)
 
 ## 모바일 적응형
 ![image (2)](https://github.com/kangaroo19/neki99/assets/86513078/e370c3ce-7d45-4f53-b509-8a386ac3ec7a)
