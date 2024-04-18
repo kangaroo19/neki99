@@ -11,5 +11,6 @@ export default function AppWindowButton({ onClick, children, width, height, type
 
 const ButtonStyled = styled(Button)`
   width: ${props => props.width};
-  height: ${props => props.heght};
+  height: ${props => props.height};
+  flex-direction: column;
 `

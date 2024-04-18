@@ -22,7 +22,7 @@ export const useAppWindowRender = create(set => ({
     },
     blogWindow: {
       zIndexValue: 2,
-      isOpen: false,
+      isOpen: true,
     },
   },
   onClickWindow: name => {

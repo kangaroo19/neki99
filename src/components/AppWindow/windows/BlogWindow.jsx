@@ -1,11 +1,12 @@
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import AppWindow from '../AppWindow'
 import styled from 'styled-components'
-import { GroupBox } from 'react95'
+import BoardItem from '../components/BoardItem'
+
+const options = ['React', 'JavaScript', 'Other'].map((label, index) => ({ value: index + 1, label }))
 
 export default function BlogWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
-  console.log(windowRenderObj)
   return (
     <AppWindow width="100vw" height="93vh" top="0%" left="0%" zIndex={windowRenderObj.blogWindow.zIndexValue} onClick={() => onClickWindow('blogWindow')}>
       <AppWindow.Header onClick={() => onClickWindowClose('blogWindow')}>블로그</AppWindow.Header>
@@ -15,19 +16,11 @@ export default function BlogWindow() {
           <AppWindow.ScrollView width="100%" background="white">
             <Title>네키의 블로그</Title>
             <ListWrapper>
-              <GroupBox label="category">
-                {/* <ul>
-                  <li>React</li>
-                  <li>React</li>
-                  <li>React</li>
-                  <li>React</li>
-                  <li>React</li>
-                </ul> */}
-                <AppWindow.Button width="25%">React</AppWindow.Button>
-                <AppWindow.Button width="25%">React</AppWindow.Button>
-                <AppWindow.Button width="25%">React</AppWindow.Button>
-                <AppWindow.Button width="25%">React</AppWindow.Button>
-              </GroupBox>
+              <AppWindow.Select options={options} width="40%" />
+              <BoardItem />
+              <BoardItem />
+              <BoardItem />
+              <BoardItem />
             </ListWrapper>
           </AppWindow.ScrollView>
         </AppWindow.ContentSection>
