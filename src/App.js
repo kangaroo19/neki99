@@ -17,6 +17,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import BlogWindow from 'components/AppWindow/windows/BlogWindow'
 import neki from 'asset/images/네키.png'
 import AlertWindow from 'components/AppWindow/windows/AlertWindow'
+import { Hourglass } from 'react95'
 
 export default function App() {
   const { windowRenderObj, onClickWindowOpen } = useAppWindowRender()
