@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import ContentImg from '../../components/ContentImg'
+import ContentImg from '../../../components/ContentImg'
 import { Link } from 'react-router-dom'
 
 export default function BoardItem({ dataObj }) {

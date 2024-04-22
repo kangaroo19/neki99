@@ -2,6 +2,8 @@
 
 import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
+import 'highlight.js/styles/github.css' // 코드 하이라이트 스타일 적용
+import 'react-quill/dist/quill.snow.css'
 
 export default function BlogDetail() {
   const location = useLocation()
@@ -47,4 +49,9 @@ const 쩌리컨테이너 = styled.div`
 const 게시물생성날짜 = styled.div``
 const 삭제및수정 = styled.div``
 
-const 마크다운 = styled.div``
+const 마크다운 = styled.div`
+  width: 100%;
+  * {
+    width: 100%;
+  }
+`

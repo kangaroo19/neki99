@@ -5,7 +5,7 @@ import { Hourglass } from 'react95'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import BlogHome from './blog/BlogHome'
 import BlogDetail from './blog/[id]'
-import QuillEditor from './blog/QuillEditor'
+import TextEdit from './blog/TextEdit'
 
 export default function BlogWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
@@ -28,7 +28,7 @@ export default function BlogWindow() {
               <Routes>
                 <Route path="/" element={<BlogHome />} />
                 <Route path="/*" element={<BlogDetail />} />
-                <Route path="/textEdit" element={<QuillEditor />} />
+                <Route path="/textEdit" element={<TextEdit />} />
               </Routes>
             </AppWindow.ScrollView>
           </AppWindow.ContentSection>

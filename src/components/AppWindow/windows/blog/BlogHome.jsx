@@ -1,10 +1,13 @@
-import BoardItem from 'components/AppWindow/windows/blog/BoardItem'
+import BoardItem from 'components/AppWindow/windows/blog/components/BoardItem'
 import AppWindow from 'components/AppWindow/AppWindow'
 import styled from 'styled-components'
 import { useBlogQuery } from 'utils/query/useBlogQuery'
 import { Hourglass } from 'react95'
 
-const options = ['React', 'JavaScript', 'Other'].map((label, index) => ({ value: index + 1, label }))
+const options = ['React', 'JavaScript', 'Other'].map((label, index) => ({
+  value: index + 1,
+  label,
+}))
 
 export default function BlogHome() {
   const { data, isLoading } = useBlogQuery()
@@ -13,7 +16,11 @@ export default function BlogHome() {
       <Title>천재현의 블로그</Title>
       <ListWrapper>
         <AppWindow.Select options={options} width="40%" />
-        {!isLoading ? data.map(item => <BoardItem dataObj={item} />) : <Hourglass />}
+        {!isLoading ? (
+          data.map(item => <BoardItem dataObj={item} />)
+        ) : (
+          <Hourglass />
+        )}
       </ListWrapper>
     </>
   )
