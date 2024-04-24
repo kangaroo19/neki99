@@ -2,18 +2,10 @@
 
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { db } from '../../firebase'
-import {
-  collection,
-  doc,
-  addDoc,
-  getDocs,
-  query,
-  where,
-  orderBy,
-} from 'firebase/firestore'
+import { collection, doc, addDoc, getDocs, query, where, orderBy } from 'firebase/firestore'
 import getCurrentDate from 'utils/getCurrentDate'
 
-const getAllBlogList = async () => {
+export const getAllBlogList = async () => {
   const result = []
   try {
     const q = query(collection(db, 'blog'), orderBy('createdAt', 'desc'))
@@ -31,9 +23,10 @@ const getAllBlogList = async () => {
 
 const postBlogItem = async data => {
   await addDoc(collection(db, 'blog'), {
-    category: null,
+    category: data.category,
     content: data.content,
     title: data.title,
+    summary: data.summary,
     createdAt: getCurrentDate(),
     id: null,
   })
@@ -45,7 +38,6 @@ export const useBlogQuery = () => {
     queryFn: getAllBlogList,
   })
 }
-
 export const useBlogItemMutation = () => {
   return useMutation({
     mutationFn: postBlogItem,

@@ -1,8 +1,11 @@
+/* eslint-disable */
+
 import BoardItem from 'components/AppWindow/windows/blog/components/BoardItem'
 import AppWindow from 'components/AppWindow/AppWindow'
 import styled from 'styled-components'
 import { useBlogQuery } from 'utils/query/useBlogQuery'
 import { Hourglass } from 'react95'
+import Spinner from 'components/spinner/Spinner'
 
 const options = ['React', 'JavaScript', 'Other'].map((label, index) => ({
   value: index + 1,
@@ -10,17 +13,21 @@ const options = ['React', 'JavaScript', 'Other'].map((label, index) => ({
 }))
 
 export default function BlogHome() {
-  const { data, isLoading } = useBlogQuery()
+  const { data, isLoading, isFetching } = useBlogQuery()
+  if (isLoading || isFetching) {
+    return (
+      
+      null
+    )
+  }
   return (
     <>
       <Title>천재현의 블로그</Title>
       <ListWrapper>
         <AppWindow.Select options={options} width="40%" />
-        {!isLoading ? (
-          data.map(item => <BoardItem dataObj={item} />)
-        ) : (
-          <Hourglass />
-        )}
+        {data.map(item => (
+          <BoardItem dataObj={item} />
+        ))}
       </ListWrapper>
     </>
   )

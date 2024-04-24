@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 import ContentImg from '../../../components/ContentImg'
 import { Link } from 'react-router-dom'
+import getThumnailImg from 'utils/getThumbnailImg'
 
 export default function BoardItem({ dataObj }) {
   return (
     <BoardItemWrapper>
       <ImgWrapper>
-        <ContentImg src={dataObj.imgSrc} width="100%" height="100%" />
+        <ContentImg src={getThumnailImg(dataObj.content)} width="100%" height="100%" />
       </ImgWrapper>
       <TextWrapperLink to={`/blog/${dataObj.id}`} state={{ item: dataObj }}>
         <BoardTitle>{dataObj.title}</BoardTitle>
-        <BoardContent>{dataObj.content}</BoardContent>
+        <BoardContent>{dataObj.summary}</BoardContent>
       </TextWrapperLink>
     </BoardItemWrapper>
   )

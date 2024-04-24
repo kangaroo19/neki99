@@ -11,6 +11,7 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import { useFormContext } from 'react-hook-form'
 import useImageHandler from 'utils/hook/quill/useImageHandler'
+import styled from 'styled-components'
 
 Quill.register('modules/ImageResize', ImageResize)
 Quill.register('modules/imageDropAndPaste', QuillImageDropAndPaste)
@@ -51,16 +52,28 @@ export default function QuillEditor() {
     }
   }, [])
 
-  const formats = ['header', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'image', 'code-block', 'list']
+  const formats = [
+    'header',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'image',
+    'code-block',
+    'list',
+    'link',
+  ]
   const { getValues, setValue } = useFormContext()
 
   const handleChange = content => {
     setValue('content', content)
+    console.log(content)
   }
 
   return (
     <div className="ql-snow">
-      <ReactQuill
+      <ReactQuillStyled
         className="ql-editor"
         ref={quillRef}
         theme="snow"
@@ -73,3 +86,13 @@ export default function QuillEditor() {
     </div>
   )
 }
+
+const ReactQuillStyled = styled(ReactQuill)`
+  & > .ql-toolbar {
+    position: sticky;
+  }
+  & > .ql-container {
+    overflow-x: hidden;
+    height: 300px;
+  }
+`
