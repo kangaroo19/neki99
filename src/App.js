@@ -16,12 +16,13 @@ import GuestBookWindow from 'components/AppWindow/windows/GuestBookWindow'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import BlogWindow from 'components/AppWindow/windows/BlogWindow'
 import neki from 'asset/images/네키.png'
-import AlertWindow from 'components/AppWindow/windows/AlertWindow'
-import { Hourglass } from 'react95'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+
 
 export default function App() {
   const { windowRenderObj, onClickWindowOpen } = useAppWindowRender()
   const queryClient = new QueryClient()
+  const navigate = useNavigate()
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={original}>
@@ -36,15 +37,27 @@ export default function App() {
               color="white"
             />
             <BgIcon title="방명록" imgObj={{ src: notePadIcon, alt: 'trashicon' }} onDoubleClick={() => onClickWindowOpen('guestBookWindow')} border="1px solid rgb(0, 128, 128)" color="white" />
-            <BgIcon title="블로그" imgObj={{ src: neki, alt: 'trashicon' }} onDoubleClick={() => onClickWindowOpen('alertWindow')} border="1px solid rgb(0, 128, 128)" color="white" />
+            <BgIcon
+              title="블로그"
+              imgObj={{ src: neki, alt: 'trashicon' }}
+              onDoubleClick={() => {
+                onClickWindowOpen('blogWindow')
+                navigate('/blog')
+              }}
+              border="1px solid rgb(0, 128, 128)"
+              color="white"
+            />
             <BgIcon title="휴지통" imgObj={{ src: trashIcon, alt: 'trashicon' }} onDoubleClick={() => onClickWindowOpen('trashCanWindow')} border="1px solid rgb(0, 128, 128)" color="white" />
             {windowRenderObj.myInfoWindow.isOpen && <MyInfoWindow />}
             {windowRenderObj.myProjectWindow.isOpen && <MyProjectsWindow />}
             {windowRenderObj.trashCanWindow.isOpen && <TrashCanWindow />}
             {windowRenderObj.guestBookWindow.isOpen && <GuestBookWindow />}
-            {windowRenderObj.alertWindow.isOpen && <AlertWindow text="블로그 서비스는 준비 중 입니다.."/>}
+            {/* {windowRenderObj.blogWindow.isOpen && <BlogWindow />} */}
           </Layout.WindowContainer>
           <Layout.TaskBar />
+          <Routes>
+            <Route path="/blog/*" element={windowRenderObj.blogWindow.isOpen && <BlogWindow />} />
+          </Routes>
         </Layout>
       </ThemeProvider>
     </QueryClientProvider>

@@ -22,7 +22,7 @@ export const useAppWindowRender = create(set => ({
     },
     blogWindow: {
       zIndexValue: 2,
-      isOpen: false,
+      isOpen: true,
     },
     alertWindow: {
       zIndexValue: 2, // 이 윈도우창의 zIndex 속성에 할당할 값

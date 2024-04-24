@@ -1,11 +1,20 @@
+/* eslint-disable */
+
 import { GroupBox, Select } from 'react95'
+import styled from 'styled-components'
 
-const options = ['리액트', '자바스크립트', '기타']
-
-export default function AppWindowSelect() {
+export default function AppWindowSelect({ registerFn, options, width, height }) {
   return (
-    <GroupBox label="Category">
-      <Select options={options} />
-    </GroupBox>
+    <GroupBoxStyled label="Category">
+      <Select {...registerFn} options={options} defaultValue={1} width={width} height={height} />
+    </GroupBoxStyled>
   )
 }
+
+const GroupBoxStyled = styled(GroupBox)`
+  width: ${props => props.width};
+  height: ${props => props.height};
+  & ul {
+    margin: 0;
+  }
+`
