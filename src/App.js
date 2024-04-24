@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { ThemeProvider } from 'styled-components'
 import original from 'react95/dist/themes/original'
 import Layout from './components/layout/Layout'
@@ -15,6 +17,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import BlogWindow from 'components/AppWindow/windows/BlogWindow'
 import neki from 'asset/images/네키.png'
 import { Route, Routes, useNavigate } from 'react-router-dom'
+
 
 export default function App() {
   const { windowRenderObj, onClickWindowOpen } = useAppWindowRender()

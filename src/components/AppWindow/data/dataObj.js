@@ -18,13 +18,16 @@ export const dataObj = [
     },
     tabDataObj: {
       implementTab: `
-- 내 정보, 내 프로젝트에 대한 정보 
+- 내 정보, 내 프로젝트에 대한 정보
+- 방명록 기능,
+- 블로그 (작업중) 
 - 전체적인 퍼블리싱`,
       skillTab: `
 - React
 - zustand
 - React95
-- React-Draggable`,
+- React-Draggable
+- Firebase`,
     },
   },
   {
