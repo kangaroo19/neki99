@@ -1,13 +1,40 @@
+import { useNavigate } from 'react-router-dom'
 import { MenuList, MenuListItem } from 'react95'
 import styled from 'styled-components'
 
-export default function HeaderMenu() {
+const defaultValueArr = [
+  {
+    title: 'File',
+    url: null,
+  },
+  {
+    title: 'Edit',
+    url: null,
+  },
+  {
+    title: 'View',
+    url: null,
+  },
+  {
+    title: 'Help',
+    url: null,
+  },
+]
+
+export default function HeaderMenu({ arr = defaultValueArr }) {
+  const navigate = useNavigate()
+
   return (
     <MenuListContainer inline fullWidth>
-      <MenuListItem>File</MenuListItem>
-      <MenuListItem>Edit</MenuListItem>
-      <MenuListItem>View</MenuListItem>
-      <MenuListItem>Help</MenuListItem>
+      {arr.map(item => (
+        <MenuListItem
+          onClick={() => {
+            navigate(item.url)
+          }}
+        >
+          {item.title}
+        </MenuListItem>
+      ))}
     </MenuListContainer>
   )
 }

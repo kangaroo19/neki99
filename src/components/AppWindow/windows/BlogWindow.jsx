@@ -10,6 +10,11 @@ const BlogHome = lazy(() => import('./blog/BlogHome'))
 const BlogDetail = lazy(() => import('./blog/[id]'))
 const TextEdit = lazy(() => import('./blog/TextEdit'))
 
+const blogMenuItemArr = [
+  { title: '목록', url: '/blog' },
+  { title: '글쓰기', url: '/blog/textEdit' },
+]
+
 /**
  * 블로그 창 뼈대 여기서 라우팅됨(홈 or 상세조회)
  * @returns
@@ -36,7 +41,7 @@ export default function BlogWindow() {
         >
           블로그
         </AppWindow.Header>
-        <AppWindow.HeadMenu />
+        <AppWindow.HeadMenu arr={blogMenuItemArr} />
         <AppWindow.Content height="100%">
           <AppWindow.ContentSection height="80%">
             <AppWindow.ScrollView width="100%" background="beige">
