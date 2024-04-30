@@ -1,48 +1,38 @@
-import { useNavigate } from 'react-router-dom'
-import { MenuList, MenuListItem } from 'react95'
-import styled from 'styled-components'
+import MenuListsWrapper from './menuList/MenuListsWrapper'
 
 const defaultValueArr = [
   {
     title: 'File',
-    url: null,
+    icon: null,
   },
   {
     title: 'Edit',
-    url: null,
+    icon: null,
   },
   {
     title: 'View',
-    url: null,
+    icon: null,
   },
   {
     title: 'Help',
-    url: null,
+    icon: null,
   },
 ]
 
 export default function HeaderMenu({ arr = defaultValueArr }) {
-  const navigate = useNavigate()
-
   return (
-    <MenuListContainer inline fullWidth>
+    <MenuListsWrapper inline fullWidth style={menuListStyle}>
       {arr.map(item => (
-        <MenuListItem
-          onClick={() => {
-            navigate(item.url)
-          }}
-        >
-          {item.title}
-        </MenuListItem>
+        <MenuListsWrapper.Item itemObj={item} />
       ))}
-    </MenuListContainer>
+    </MenuListsWrapper>
   )
 }
 
-const MenuListContainer = styled(MenuList)`
-  margin: 0;
-  box-shadow: none;
-  padding: 0 4px;
-  border-right: none;
-  border-left: none;
-`
+const menuListStyle = {
+  margin: '0',
+  boxShadow: 'none',
+  padding: '0 4px',
+  borderRight: 'none',
+  borderLeft: 'none',
+}

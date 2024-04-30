@@ -1,4 +1,4 @@
-import { MenuList, MenuListItem } from 'react95'
+import MenuListsWrapper from 'components/AppWindow/components/menuList/MenuListsWrapper'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 
 export default function StartMenu({ onClickStartBtn }) {
@@ -13,21 +13,18 @@ export default function StartMenu({ onClickStartBtn }) {
   ]
 
   return (
-    <MenuList style={menuListStyle} onClick={onClickStartBtn}>
+    <MenuListsWrapper style={menuListStyle} onClick={onClickStartBtn}>
       {MenuListItemArr.map(item => (
-        <MenuListItem onClick={item.onClick}>
-          <span>{item.icon}</span>
-          {item.title}
-        </MenuListItem>
+        <MenuListsWrapper.Item itemObj={item} />
       ))}
-    </MenuList>
+    </MenuListsWrapper>
   )
 }
 
 const menuListStyle = {
+  margin: '0',
   position: 'absolute',
   left: '0',
   bottom: '100%',
   boxSizing: 'border-box',
-  margin: '0',
 }

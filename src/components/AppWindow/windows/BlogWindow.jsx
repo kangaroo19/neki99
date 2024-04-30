@@ -10,11 +10,6 @@ const BlogHome = lazy(() => import('./blog/BlogHome'))
 const BlogDetail = lazy(() => import('./blog/[id]'))
 const TextEdit = lazy(() => import('./blog/TextEdit'))
 
-const blogMenuItemArr = [
-  { title: '목록', url: '/blog' },
-  { title: '글쓰기', url: '/blog/textEdit' },
-]
-
 /**
  * 블로그 창 뼈대 여기서 라우팅됨(홈 or 상세조회)
  * @returns
@@ -23,6 +18,11 @@ const blogMenuItemArr = [
 export default function BlogWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   const navigate = useNavigate()
+  const blogMenuItemArr = [
+    { title: '목록', onClick: () => navigate('/blog') },
+    { title: '글쓰기', onClick: () => navigate('/blog/textEdit') },
+  ]
+
   return (
     <Suspense fallback={<Hourglass />}>
       <AppWindow
