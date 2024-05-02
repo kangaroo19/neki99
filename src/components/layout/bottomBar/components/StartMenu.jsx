@@ -1,37 +1,30 @@
-import { MenuList, MenuListItem, Separator } from 'react95'
+import MenuListsWrapper from 'components/AppWindow/components/menuList/MenuListsWrapper'
+import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 
 export default function StartMenu({ onClickStartBtn }) {
+  const { onClickWindowOpen } = useAppWindowRender()
+
   const onClickRoutes = url => {
     window.open(url)
   }
+  const MenuListItemArr = [
+    { title: 'Github', icon: '👿', onClick: () => onClickRoutes('https://github.com/kangaroo19') },
+    { title: 'Login', icon: '📁', onClick: () => onClickWindowOpen('loginWindow') },
+  ]
+
   return (
-    <MenuList
-      style={{
-        position: 'absolute',
-        left: '0',
-        bottom: '100%',
-        boxSizing: 'border-box',
-        margin: '0',
-      }}
-      onClick={onClickStartBtn}
-    >
-      <MenuListItem onClick={() => onClickRoutes('https://github.com/kangaroo19')}>
-        <span>👿</span>
-        Github
-      </MenuListItem>
-      <MenuListItem>
-        <span role="img" aria-label="📁">
-          📁
-        </span>
-        My account
-      </MenuListItem>
-      <Separator />
-      <MenuListItem disabled>
-        <span role="img" aria-label="🔙">
-          🔙
-        </span>
-        Logout
-      </MenuListItem>
-    </MenuList>
+    <MenuListsWrapper style={menuListStyle} onClick={onClickStartBtn}>
+      {MenuListItemArr.map(item => (
+        <MenuListsWrapper.Item itemObj={item} />
+      ))}
+    </MenuListsWrapper>
   )
+}
+
+const menuListStyle = {
+  margin: '0',
+  position: 'absolute',
+  left: '0',
+  bottom: '100%',
+  boxSizing: 'border-box',
 }

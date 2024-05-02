@@ -14,16 +14,15 @@ export default function BlogDetail() {
   } = location
   return (
     <Suspense fallback={<Hourglass />}>
-      <Wrapper>
-        <TitleWrapper>
-          <Title>{item.title}</Title>
-          <쩌리컨테이너>
-            <게시물생성날짜>생성일 : {item.createdAt}</게시물생성날짜>
-            <삭제및수정>수정/삭제</삭제및수정>
-          </쩌리컨테이너>
-        </TitleWrapper>
-        <마크다운 dangerouslySetInnerHTML={{ __html: item.content }} />
-      </Wrapper>
+      <TitleWrapper>
+        <Title>{item.title}</Title>
+        <쩌리컨테이너>
+          <게시물생성날짜>생성일 : {item.createdAt}</게시물생성날짜>
+          <삭제및수정>수정/삭제</삭제및수정>
+        </쩌리컨테이너>
+      </TitleWrapper>
+      <마크다운 dangerouslySetInnerHTML={{ __html: item.content }} />
+      <div>Dfdfd</div>
     </Suspense>
   )
 }
@@ -53,6 +52,9 @@ const Title = styled.div`
   padding: 10px;
   font-size: 2rem;
   text-align: center;
+  @media screen and (max-width: 600px) {
+    font-size: 1.6rem;
+  }
 `
 const 쩌리컨테이너 = styled.div`
   display: flex;

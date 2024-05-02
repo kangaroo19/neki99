@@ -9,6 +9,8 @@ import { WindowContent } from 'react95'
 import { useForm } from 'react-hook-form'
 import getCurrentDate from 'utils/getCurrentDate'
 
+
+
 export default function GuestBookWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   const { refetch, data, isLoading } = useGuestBookQuery()

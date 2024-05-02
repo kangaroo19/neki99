@@ -1,21 +1,38 @@
-import { MenuList, MenuListItem } from 'react95'
-import styled from 'styled-components'
+import MenuListsWrapper from './menuList/MenuListsWrapper'
 
-export default function HeaderMenu() {
+const defaultValueArr = [
+  {
+    title: 'File',
+    icon: null,
+  },
+  {
+    title: 'Edit',
+    icon: null,
+  },
+  {
+    title: 'View',
+    icon: null,
+  },
+  {
+    title: 'Help',
+    icon: null,
+  },
+]
+
+export default function HeaderMenu({ arr = defaultValueArr }) {
   return (
-    <MenuListContainer inline fullWidth>
-      <MenuListItem>File</MenuListItem>
-      <MenuListItem>Edit</MenuListItem>
-      <MenuListItem>View</MenuListItem>
-      <MenuListItem>Help</MenuListItem>
-    </MenuListContainer>
+    <MenuListsWrapper inline fullWidth style={menuListStyle}>
+      {arr.map(item => (
+        <MenuListsWrapper.Item itemObj={item} key={item.title} />
+      ))}
+    </MenuListsWrapper>
   )
 }
 
-const MenuListContainer = styled(MenuList)`
-  margin: 0;
-  box-shadow: none;
-  padding: 0 4px;
-  border-right: none;
-  border-left: none;
-`
+const menuListStyle = {
+  margin: '0',
+  boxShadow: 'none',
+  padding: '0 4px',
+  borderRight: 'none',
+  borderLeft: 'none',
+}
