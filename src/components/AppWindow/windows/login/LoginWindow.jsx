@@ -17,8 +17,8 @@ export default function LoginWindow() {
   return (
     <AppWindow
       width="300px"
-      top="30%"
-      left="30%"
+      top="70%"
+      left="10%"
       zIndex={windowRenderObj.loginWindow.zIndexValue + 9}
       onClick={() => onClickWindow('loginWindow')}
     >
