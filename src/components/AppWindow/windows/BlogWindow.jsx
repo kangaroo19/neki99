@@ -5,6 +5,7 @@ import { Hourglass } from 'react95'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import Spinner from 'components/spinner/Spinner'
 import styled from 'styled-components'
+import { useAuthStore } from 'utils/zustand/useAuthStore'
 
 const BlogHome = lazy(() => import('./blog/BlogHome'))
 const BlogDetail = lazy(() => import('./blog/[id]'))
@@ -16,11 +17,12 @@ const TextEdit = lazy(() => import('./blog/TextEdit'))
  */
 
 export default function BlogWindow() {
-  const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
+  const { isAuth } = useAuthStore()
+  const { onClickWindowClose, windowRenderObj, onClickWindow, onClickWindowOpen } = useAppWindowRender()
   const navigate = useNavigate()
   const blogMenuItemArr = [
     { title: '목록', onClick: () => navigate('/blog') },
-    { title: '글쓰기', onClick: () => navigate('/blog/textEdit') },
+    { title: '글쓰기', onClick: () => (isAuth ? navigate('/blog/textEdit') : onClickWindowOpen('loginWindow')) },
   ]
 
   return (

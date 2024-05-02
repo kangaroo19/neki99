@@ -23,7 +23,7 @@ export default function HeaderMenu({ arr = defaultValueArr }) {
   return (
     <MenuListsWrapper inline fullWidth style={menuListStyle}>
       {arr.map(item => (
-        <MenuListsWrapper.Item itemObj={item} />
+        <MenuListsWrapper.Item itemObj={item} key={item.title} />
       ))}
     </MenuListsWrapper>
   )

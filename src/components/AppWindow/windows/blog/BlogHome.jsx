@@ -22,7 +22,7 @@ export default function BlogHome() {
       <Title>천재현의 블로그</Title>
       <AppWindow.Select options={options} width="40%" />
       {data.map(item => (
-        <BoardItem dataObj={item} />
+        <BoardItem dataObj={item} key={item.id} />
       ))}
     </>
   )
