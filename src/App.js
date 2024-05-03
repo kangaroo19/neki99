@@ -18,11 +18,14 @@ import BlogWindow from 'components/AppWindow/windows/BlogWindow'
 import neki from 'asset/images/네키.png'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import LoginWindow from 'components/AppWindow/windows/login/LoginWindow'
+import useEscapeKey from 'utils/hook/useEsacpeKey'
+import { useLoginModal } from 'utils/zustand/useLoginModal'
 
 export default function App() {
-  const { windowRenderObj, onClickWindowOpen } = useAppWindowRender()
+  const { windowRenderObj, onClickWindowOpen, closeAllWindow } = useAppWindowRender()
   const queryClient = new QueryClient()
   const navigate = useNavigate()
+  useEscapeKey(closeAllWindow)
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={original}>
@@ -70,7 +73,7 @@ export default function App() {
             {windowRenderObj.myProjectWindow.isOpen && <MyProjectsWindow />}
             {windowRenderObj.trashCanWindow.isOpen && <TrashCanWindow />}
             {windowRenderObj.guestBookWindow.isOpen && <GuestBookWindow />}
-            {windowRenderObj.loginWindow.isOpen && <LoginWindow />}
+            {windowRenderObj.loginWindow.isOpen && <LoginWindow/>}
           </Layout.WindowContainer>
           <Layout.TaskBar />
           <Routes>
