@@ -54,4 +54,3 @@ export default function LoginWindow() {
 const ButtonContainer = styled.form`
   padding: 5px 0;
 `
-///////////////////////
