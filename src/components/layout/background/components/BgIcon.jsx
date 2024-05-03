@@ -1,13 +1,21 @@
 import styled from 'styled-components'
 import useMediaQuery from 'utils/hook/useMediaQuery'
 
-export default function BgIcon({ title, imgObj, onDoubleClick }) {
+export default function BgIcon({
+  title,
+  imgObj,
+  onDoubleClick,
+  border = '1px solid rgb(0, 128, 128)',
+  color = 'white',
+}) {
   const viewPortSize = useMediaQuery()
 
   return (
     <IconContainer
       onClick={viewPortSize === 'mobile' ? onDoubleClick : null}
       onDoubleClick={viewPortSize !== 'mobile' && onDoubleClick}
+      border={border}
+      color={color}
     >
       <IconImage src={imgObj.src} alt={imgObj.alt} />
       <IconText>{title}</IconText>
@@ -22,8 +30,8 @@ const IconContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(0, 128, 128);
-  color: white;
+  border: ${props => props.border};
+  color: ${props => props.color};
   &:active {
     border: 1px dotted black;
   }
