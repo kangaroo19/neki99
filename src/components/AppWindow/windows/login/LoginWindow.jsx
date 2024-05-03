@@ -1,4 +1,7 @@
+/*eslint-disable */
+
 import AppWindow from 'components/AppWindow/AppWindow'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
@@ -10,15 +13,17 @@ export default function LoginWindow() {
   const { register, handleSubmit } = useForm()
   const onSubmitLoginBtn = data => {
     if (data.password === process.env.REACT_APP_AUTH) {
+      // 비번 맞았을 때
       setIsAuthTrue()
       onClickWindowClose('loginWindow')
     }
   }
+
   return (
     <AppWindow
       width="300px"
-      top="30%"
-      left="30%"
+      top="70%"
+      left="10%"
       zIndex={windowRenderObj.loginWindow.zIndexValue + 9}
       onClick={() => onClickWindow('loginWindow')}
     >

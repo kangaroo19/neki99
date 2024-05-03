@@ -18,12 +18,21 @@ import AppWindowFooter from './components/AppWindowFooter'
 import AppWindowInput from './components/AppWindowInput'
 import AppWindowButton from './components/AppWindowButton'
 import AppWindowSelect from './components/AppWindowSelect'
-
-export default function AppWindow({ children, width, height, top, left, zIndex = 0, onClick }) {
+import styles from './AppWindow.module.css'
+import divideStyleIDString from 'utils/divideStyleIDString'
+export default function AppWindow({ children, width, height, top, left, zIndex = 0, onClick, styleID }) {
   const viewPortSize = useMediaQuery()
   return (
     <Draggable handle=".handle" disabled={viewPortSize === 'mobile' ? true : false}>
-      <AppWindowMain width={width} height={height} top={top} left={left} zIndex={zIndex} onClick={onClick}>
+      <AppWindowMain
+        className={`${divideStyleIDString(styles, styleID)}`}
+        width={width}
+        height={height}
+        top={top}
+        left={left}
+        zIndex={zIndex}
+        onClick={onClick}
+      >
         {children}
       </AppWindowMain>
     </Draggable>
