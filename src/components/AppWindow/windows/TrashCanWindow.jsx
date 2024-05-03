@@ -1,12 +1,18 @@
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import AppWindow from '../AppWindow'
-import BgIcon from 'components/bgIcon/BgIcon'
+import BgIcon from 'components/layout/background/components/BgIcon'
 import fileIcon from 'asset/images/fileIcon.png'
 
 export default function TrashCanWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   return (
-    <AppWindow width="500px" top="10%" left="30%" zIndex={windowRenderObj.trashCanWindow.zIndexValue} onClick={() => onClickWindow('trashCanWindow')}>
+    <AppWindow
+      width="500px"
+      top="10%"
+      left="30%"
+      zIndex={windowRenderObj.trashCanWindow.zIndexValue}
+      onClick={() => onClickWindow('trashCanWindow')}
+    >
       <AppWindow.Header onClick={() => onClickWindowClose('trashCanWindow')}>휴지통</AppWindow.Header>
       <AppWindow.HeadMenu />
       <AppWindow.Content>

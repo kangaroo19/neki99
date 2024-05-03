@@ -1,11 +1,22 @@
 import styled from 'styled-components'
 import useMediaQuery from 'utils/hook/useMediaQuery'
 
-export default function BgIcon({ title, imgObj, onDoubleClick, color, border }) {
+export default function BgIcon({
+  title,
+  imgObj,
+  onDoubleClick,
+  border = '1px solid rgb(0, 128, 128)',
+  color = 'white',
+}) {
   const viewPortSize = useMediaQuery()
 
   return (
-    <IconContainer onClick={viewPortSize === 'mobile' ? onDoubleClick : null} onDoubleClick={viewPortSize !== 'mobile' && onDoubleClick} color={color} border={border}>
+    <IconContainer
+      onClick={viewPortSize === 'mobile' ? onDoubleClick : null}
+      onDoubleClick={viewPortSize !== 'mobile' && onDoubleClick}
+      border={border}
+      color={color}
+    >
       <IconImage src={imgObj.src} alt={imgObj.alt} />
       <IconText>{title}</IconText>
     </IconContainer>
