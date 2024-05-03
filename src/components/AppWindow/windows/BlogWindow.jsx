@@ -80,17 +80,28 @@ const ListWrapper = styled.div`
   width: 60%;
   background: white;
   padding: 0 30px;
-  @media screen and (max-width: 600px) {
-    width: 100%;
-    padding: 0px;
-  }
+  overflow-x: hidden;
   pre {
     background-color: #23241f;
     color: #f8f8f2;
     overflow: visible;
+    overflow-x: scroll;
     border-radius: 5px;
   }
+
   .hljs-string {
     color: yellow;
+  }
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    padding: 0px;
+    font-size: 12px;
+    ul {
+      box-sizing: border-box;
+      font-size: 12px !important;
+    }
+    li {
+      font-size: 12px;
+    }
   }
 `
