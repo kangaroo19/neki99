@@ -22,27 +22,9 @@ export default function BlogDetail() {
         </쩌리컨테이너>
       </TitleWrapper>
       <마크다운 dangerouslySetInnerHTML={{ __html: item.content }} />
-      <div>Dfdfd</div>
     </Suspense>
   )
 }
-
-const Wrapper = styled.div`
-  margin: 0 auto;
-  width: 60%;
-  pre {
-    background-color: #23241f;
-    color: #f8f8f2;
-    overflow: visible;
-    border-radius: 5px;
-  }
-  .hljs-string {
-    color: yellow;
-  }
-  @media screen and (max-width: 600px) {
-    width: 100%;
-  }
-`
 
 const TitleWrapper = styled.div`
   padding: 10px;

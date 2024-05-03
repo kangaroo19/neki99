@@ -6,6 +6,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import Spinner from 'components/spinner/Spinner'
 import styled from 'styled-components'
 import { useAuthStore } from 'utils/zustand/useAuthStore'
+import { useLoginModal } from 'utils/zustand/useLoginModal'
 
 const BlogHome = lazy(() => import('./blog/BlogHome'))
 const BlogDetail = lazy(() => import('./blog/[id]'))
@@ -18,11 +19,12 @@ const TextEdit = lazy(() => import('./blog/TextEdit'))
 
 export default function BlogWindow() {
   const { isAuth } = useAuthStore()
-  const { onClickWindowClose, windowRenderObj, onClickWindow, onClickWindowOpen } = useAppWindowRender()
+  const { setIsOpenTrue } = useLoginModal()
+  const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   const navigate = useNavigate()
   const blogMenuItemArr = [
     { title: '목록', onClick: () => navigate('/blog') },
-    { title: '글쓰기', onClick: () => (isAuth ? navigate('/blog/textEdit') : onClickWindowOpen('loginWindow')) },
+    { title: '글쓰기', onClick: () => (isAuth ? navigate('/blog/textEdit') : setIsOpenTrue()) },
   ]
 
   return (
@@ -80,17 +82,28 @@ const ListWrapper = styled.div`
   width: 60%;
   background: white;
   padding: 0 30px;
-  @media screen and (max-width: 600px) {
-    width: 100%;
-    padding: 0px;
-  }
+  overflow-x: hidden;
   pre {
     background-color: #23241f;
     color: #f8f8f2;
     overflow: visible;
+    overflow-x: scroll;
     border-radius: 5px;
   }
+
   .hljs-string {
     color: yellow;
+  }
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    padding: 0px;
+    font-size: 12px;
+    ul {
+      box-sizing: border-box;
+      font-size: 12px !important;
+    }
+    li {
+      font-size: 12px;
+    }
   }
 `

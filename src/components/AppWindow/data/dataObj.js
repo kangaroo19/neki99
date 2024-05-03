@@ -9,7 +9,7 @@ export const dataObj = [
     content: `
 예전에 바닐라 **자바스크립트** 및 **제이쿼리**로 만든 개인 포트폴리오 사이트를 \n
 **리액트**로 **마이그레이션** 하여 다시 만든 웹페이지 입니다.
-**react95** 라는 UI 라이브러리를 활용하여 만들었습니다.
+**React95** 라는 UI 라이브러리를 활용하여 만들었습니다.
     `,
     imgSrc: windowImg,
     path: {
@@ -24,9 +24,9 @@ export const dataObj = [
 - 전체적인 퍼블리싱`,
       skillTab: `
 - React
-- zustand
 - React95
-- React-Draggable
+- Zustand
+- Tanstack-Query
 - Firebase`,
     },
   },
