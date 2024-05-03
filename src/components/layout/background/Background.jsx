@@ -5,6 +5,7 @@ import myComputer from 'asset/images/myComputer.png'
 import trashIcon from 'asset/images/trash.png'
 import networkIcon from 'asset/images/network.png'
 import neki from 'asset/images/네키.png'
+import notePad from 'asset/images/notepad.png'
 import { useNavigate } from 'react-router-dom'
 
 export default function Background() {
@@ -23,7 +24,7 @@ export default function Background() {
     },
     {
       title: '방명록',
-      imgObj: { src: networkIcon, alt: 'networkIcon' },
+      imgObj: { src: notePad, alt: 'networkIcon' },
       onDoubleClick: () => onClickWindowOpen('guestBookWindow'),
     },
     {

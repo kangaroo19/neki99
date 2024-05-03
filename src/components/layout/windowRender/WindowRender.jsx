@@ -6,7 +6,6 @@ const MyInfoWindow = lazy(() => import('components/AppWindow/windows/MyInfoWindo
 const MyProjectsWindow = lazy(() => import('components/AppWindow/windows/MyProjectsWindow'))
 const TrashCanWindow = lazy(() => import('components/AppWindow/windows/TrashCanWindow'))
 const LoginWindow = lazy(() => import('components/AppWindow/windows/login/LoginWindow'))
-
 export default function WindowRender() {
   const { windowRenderObj } = useAppWindowRender()
 
@@ -17,6 +16,7 @@ export default function WindowRender() {
       {windowRenderObj.trashCanWindow.isOpen && <TrashCanWindow />}
       {windowRenderObj.guestBookWindow.isOpen && <GuestBookWindow />}
       {windowRenderObj.loginWindow.isOpen && <LoginWindow />}
+      {windowRenderObj.helpWindow.isOpen && null}
     </Suspense>
   )
 }
