@@ -73,6 +73,7 @@ export default function App() {
             {windowRenderObj.myProjectWindow.isOpen && <MyProjectsWindow />}
             {windowRenderObj.trashCanWindow.isOpen && <TrashCanWindow />}
             {windowRenderObj.guestBookWindow.isOpen && <GuestBookWindow />}
+            {windowRenderObj.loginWindow.isOpen && <LoginWindow/>}
           </Layout.WindowContainer>
           <Layout.TaskBar />
           <Routes>

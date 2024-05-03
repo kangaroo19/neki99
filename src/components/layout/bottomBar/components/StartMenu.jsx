@@ -1,15 +1,15 @@
 import MenuListsWrapper from 'components/AppWindow/components/menuList/MenuListsWrapper'
-import LoginWindow from 'components/AppWindow/windows/login/LoginWindow'
-import { useLoginModal } from 'utils/zustand/useLoginModal'
+import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 
 export default function StartMenu({ onClickStartBtn }) {
-  const { isOpen, setIsOpenTrue } = useLoginModal()
+  const { onClickWindowOpen } = useAppWindowRender()
+
   const onClickRoutes = url => {
     window.open(url)
   }
   const MenuListItemArr = [
-    { title: 'Github', icon: '👨‍💻', onClick: () => onClickRoutes('https://github.com/kangaroo19') },
-    { title: 'Login', icon: '🔒', onClick: () => setIsOpenTrue() },
+    { title: 'Github', icon: '👿', onClick: () => onClickRoutes('https://github.com/kangaroo19') },
+    { title: 'Login', icon: '📁', onClick: () => onClickWindowOpen('loginWindow') },
   ]
 
   return (
@@ -17,7 +17,6 @@ export default function StartMenu({ onClickStartBtn }) {
       {MenuListItemArr.map(item => (
         <MenuListsWrapper.Item itemObj={item} />
       ))}
-      {isOpen && <LoginWindow />}
     </MenuListsWrapper>
   )
 }
