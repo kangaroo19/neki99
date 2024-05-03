@@ -1,9 +1,11 @@
 import BottomBar from './bottomBar/BottomBar'
-import WindowContainer from './windowContainer/WindowContainer'
+import Background from './background/Background'
+import WindowRender from './windowRender/WindowRender'
 
 export default function Layout({ children }) {
   return <div>{children}</div>
 }
 
 Layout.TaskBar = BottomBar
-Layout.WindowContainer = WindowContainer
+Layout.Background = Background
+Layout.WindowRender = WindowRender

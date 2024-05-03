@@ -10,6 +10,7 @@ export default function StartMenu({ onClickStartBtn }) {
   const MenuListItemArr = [
     { title: 'Github', icon: '👿', onClick: () => onClickRoutes('https://github.com/kangaroo19') },
     { title: 'Login', icon: '📁', onClick: () => onClickWindowOpen('loginWindow') },
+    { title: 'Help', icon: 'ℹ️', onClick: null },
   ]
 
   return (
