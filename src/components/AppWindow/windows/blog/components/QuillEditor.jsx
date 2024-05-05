@@ -68,7 +68,6 @@ export default function QuillEditor() {
 
   const handleChange = content => {
     setValue('content', content)
-    console.log(content)
   }
 
   return (

@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { uploadBytes, getDownloadURL, ref } from 'firebase/storage'
 import { storage } from '../../../firebase'
+import { imageConverter } from 'upload-images-converter'
 
 const useImageHandler = () => {
   const [imageUrl, setImageUrl] = useState('')
@@ -15,13 +16,13 @@ const useImageHandler = () => {
     input.click()
     input.addEventListener('change', async () => {
       const editor = quillRef.current.getEditor()
-      const file = input.files[0]
+      const file = await imageConverter({ files: [input.files[0]] })
       const range = editor.getSelection(true)
       try {
         // 파일명을 "image/Date.now()"로 저장
         const storageRef = ref(storage, `image/${Date.now()}`)
         // Firebase Method : uploadBytes, getDownloadURL
-        await uploadBytes(storageRef, file).then(snapshot => {
+        await uploadBytes(storageRef, file[0]).then(snapshot => {
           getDownloadURL(snapshot.ref).then(url => {
             // 이미지 URL 에디터에 삽입
             editor.insertEmbed(range.index, 'image', url)
