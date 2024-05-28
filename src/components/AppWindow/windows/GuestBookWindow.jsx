@@ -9,8 +9,6 @@ import { WindowContent } from 'react95'
 import { useForm } from 'react-hook-form'
 import getCurrentDate from 'utils/getCurrentDate'
 
-
-
 export default function GuestBookWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   const { refetch, data, isLoading } = useGuestBookQuery()
@@ -27,8 +25,14 @@ export default function GuestBookWindow() {
     })
   }
   return (
-    <AppWindow width="800px" top="5%" left="10%" zIndex={windowRenderObj.guestBookWindow.zIndexValue} onClick={() => onClickWindow('guestBookWindow')}>
-      <AppWindow.Header onClick={() => onClickWindowClose('guestBookWindow')}>방명록</AppWindow.Header>
+    <AppWindow
+      width="800px"
+      top="5%"
+      left="10%"
+      zIndex={windowRenderObj.guestBookWindow.zIndexValue}
+      onClick={event => onClickWindow('guestBookWindow', event)}
+    >
+      <AppWindow.Header onClick={(event) => onClickWindowClose('guestBookWindow',event)}>방명록</AppWindow.Header>
       <AppWindow.HeadMenu />
       <AppWindow.Content>
         <AppWindow.ContentSection height="200px">
@@ -52,7 +56,13 @@ export default function GuestBookWindow() {
       <AppWindow.Footer>
         {/* 방명록관련 인풋필드 및 버튼 */}
         <AppWindow.Input width="50%" placeholder="이름을 작성해 주세요" registerFn={register('writer')} />
-        <AppWindow.Input width="100%" rows={4} placeholder="방명록을 작성해 주세요" multiline registerFn={register('content')} />
+        <AppWindow.Input
+          width="100%"
+          rows={4}
+          placeholder="방명록을 작성해 주세요"
+          multiline
+          registerFn={register('content')}
+        />
         <SubmitButtonContainer>
           <AppWindow.Button width="20%" onClick={handleSubmit(onClickSubmitButton)}>
             등록

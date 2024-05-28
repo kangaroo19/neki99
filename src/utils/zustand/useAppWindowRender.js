@@ -32,7 +32,8 @@ export const useAppWindowRender = create(set => ({
       zIndexValue: 2, // 이 윈도우창의 zIndex 속성에 할당할 값
       isOpen: false, // 열려있는 상태인지 아닌지
     },
-    helpWindow: { // infoWindow로 하려했는데 myInfoWindow와 네이밍 겹쳐서..
+    helpWindow: {
+      // infoWindow로 하려했는데 myInfoWindow와 네이밍 겹쳐서..
       zIndexValue: 2, // 이 윈도우창의 zIndex 속성에 할당할 값
       isOpen: true, // 열려있는 상태인지 아닌지
     },
@@ -44,13 +45,16 @@ export const useAppWindowRender = create(set => ({
         zIndexTemp: state.zIndexTemp + 1, // zIndexTemp 증가
         windowRenderObj: {
           ...state.windowRenderObj,
-          [name]: { ...state.windowRenderObj[name], zIndexValue: state.zIndexTemp },
+          [name]: { ...state.windowRenderObj[name], zIndexValue: state.zIndexTemp, isOpen: true },
         },
       }
       return newState
     })
   },
-  onClickWindowClose: name => {
+  onClickWindowClose: (name, event) => {
+    event.stopPropagation()
+    console.log('onCLickWindowClose')
+
     set(state => ({
       windowRenderObj: {
         ...state.windowRenderObj,
@@ -59,6 +63,7 @@ export const useAppWindowRender = create(set => ({
     }))
   },
   onClickWindowOpen: name => {
+    console.log('onCLickWindowOpen')
     set(state => {
       const newState = {
         ...state,
@@ -82,3 +87,22 @@ export const useAppWindowRender = create(set => ({
     }))
   },
 }))
+
+// onClickWindow 함수와 onClickWindowOpen 함수가
+// 이름도 같고 기능도 사실상 비슷해서 하나로 통일하려 했음
+// 차이점이라면 isOpen:true 로 하는 로직이 있냐없냐
+// 그래서
+// 한 함수에 isOpen:true 로 해주고 zIndex값도 설정해주는
+// 로직을 뭉쳐서 코드를 짰는데
+// 이벤트 위임때문에 의도치 않은 동작발생
+// onClickWindowClose 함수실행 안함( 사실은 하는데 안하는 것처럼 보임)
+// 창 클릭했을 떄
+// 1. onClickWindowClose 함수 실행
+// 2. onCLickWindow (변경된 함수라는 가정) 함수 실행
+// 이래서 close 함수 안먹는 것처럼 동작
+
+// 원래 함수가 제대로 동작했던 이유는
+// onClickWindow는 원래 isOpen:true로 하는 로직이 없었기 때문
+// onClickClose에 이벤트 위임 방지 코드 추가함으로써 해결
+
+// onClickWindowOpen 이 함수 없다고 생각 다 지울것
