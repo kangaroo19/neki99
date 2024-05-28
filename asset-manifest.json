@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.1a66bdc3.css",
+    "main.css": "/static/css/main.1f96bd14.css",
     "main.js": "/static/js/main.1b4a18b0.js",
     "static/css/278.9aea8b1c.chunk.css": "/static/css/278.9aea8b1c.chunk.css",
     "static/js/278.a679c32d.chunk.js": "/static/js/278.a679c32d.chunk.js",
@@ -19,7 +19,7 @@
     "static/css/56.da35cd8a.chunk.css": "/static/css/56.da35cd8a.chunk.css",
     "static/js/242.421900a3.chunk.js": "/static/js/242.421900a3.chunk.js",
     "static/js/964.49703a78.chunk.js": "/static/js/964.49703a78.chunk.js",
-    "static/media/Galmuri9.ttf": "/static/media/Galmuri9.466b3fef5f9340d55cfb.ttf",
+    "static/media/Galmuri9.woff2": "/static/media/Galmuri9.588f79d2808690722e06.woff2",
     "static/media/army.webp": "/static/media/army.c488988e3d99dbaa0fbc.webp",
     "static/media/myFace.jpg": "/static/media/myFace.d8f61787ab8b8948947c.jpg",
     "static/media/maple2.jpeg": "/static/media/maple2.f72dd64a79fe8dc1d198.jpeg",
@@ -30,7 +30,7 @@
     "static/media/banner.PNG": "/static/media/banner.50c4d09d4e61bd6ce91d.PNG",
     "static/media/noImg.jpg": "/static/media/noImg.ace953f197ee3d95e545.jpg",
     "index.html": "/index.html",
-    "main.1a66bdc3.css.map": "/static/css/main.1a66bdc3.css.map",
+    "main.1f96bd14.css.map": "/static/css/main.1f96bd14.css.map",
     "main.1b4a18b0.js.map": "/static/js/main.1b4a18b0.js.map",
     "278.9aea8b1c.chunk.css.map": "/static/css/278.9aea8b1c.chunk.css.map",
     "278.a679c32d.chunk.js.map": "/static/js/278.a679c32d.chunk.js.map",
@@ -51,7 +51,7 @@
     "964.49703a78.chunk.js.map": "/static/js/964.49703a78.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a66bdc3.css",
+    "static/css/main.1f96bd14.css",
     "static/js/main.1b4a18b0.js"
   ]
 }
