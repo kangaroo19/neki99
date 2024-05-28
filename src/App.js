@@ -1,11 +1,14 @@
+/* eslint-disable */
+
 import { ThemeProvider } from 'styled-components'
 import original from 'react95/dist/themes/original'
-import Layout from './components/layout/Layout'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import useEscapeKey from 'utils/hook/useEsacpeKey'
-import AppRouter from 'routes/AppRouter'
+import { Suspense, lazy } from 'react'
 
+const Main = lazy(() => import('components/Main'))
+const SuspenseMain = lazy(() => import('components/SuspenseMain'))
 const queryClient = new QueryClient()
 
 export default function App() {
@@ -14,12 +17,9 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={original}>
-        <Layout>
-          <Layout.Background />
-          <Layout.WindowRender />
-          <Layout.TaskBar />
-          <AppRouter />
-        </Layout>
+        <Suspense fallback={<SuspenseMain />}>
+          <Main />
+        </Suspense>
       </ThemeProvider>
     </QueryClientProvider>
   )
