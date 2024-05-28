@@ -11,8 +11,8 @@ export default function WindowRender() {
 
   return (
     <Suspense>
-      {windowRenderObj.myInfoWindow.isOpen && <MyInfoWindow />}
       {windowRenderObj.myProjectWindow.isOpen && <MyProjectsWindow />}
+      {windowRenderObj.myInfoWindow.isOpen && <MyInfoWindow />}
       {windowRenderObj.trashCanWindow.isOpen && <TrashCanWindow />}
       {windowRenderObj.guestBookWindow.isOpen && <GuestBookWindow />}
       {windowRenderObj.loginWindow.isOpen && <LoginWindow />}

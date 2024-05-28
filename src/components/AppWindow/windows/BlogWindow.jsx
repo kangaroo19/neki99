@@ -18,11 +18,11 @@ const TextEdit = lazy(() => import('./blog/TextEdit'))
 
 export default function BlogWindow() {
   const { isAuth } = useAuthStore()
-  const { onClickWindowClose, windowRenderObj, onClickWindow, onClickWindowOpen } = useAppWindowRender()
+  const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   const navigate = useNavigate()
   const blogMenuItemArr = [
     { title: '목록', onClick: () => navigate('/blog') },
-    { title: '글쓰기', onClick: () => (isAuth ? navigate('/blog/textEdit') : onClickWindowOpen('loginWindow')) },
+    { title: '글쓰기', onClick: () => (isAuth ? navigate('/blog/textEdit') : onClickWindow('loginWindow')) },
   ]
 
   return (

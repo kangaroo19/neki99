@@ -1,3 +1,4 @@
+import ImgTag from 'components/img/ImgTag'
 import styled from 'styled-components'
 import useMediaQuery from 'utils/hook/useMediaQuery'
 
@@ -17,7 +18,7 @@ export default function BgIcon({
       border={border}
       color={color}
     >
-      <IconImage src={imgObj.src} alt={imgObj.alt} />
+      <ImgTag imgObj={imgObj} width="70%" height="70%" />
       <IconText>{title}</IconText>
     </IconContainer>
   )
@@ -39,10 +40,6 @@ const IconContainer = styled.div`
     width: 90px;
     height: 80px;
   }
-`
-const IconImage = styled.img`
-  width: 70%;
-  height: 70%;
 `
 
 const IconText = styled.div`

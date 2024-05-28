@@ -4,23 +4,27 @@ import BoardItem from 'components/AppWindow/windows/blog/components/BoardItem'
 import AppWindow from 'components/AppWindow/AppWindow'
 import styled from 'styled-components'
 import { useBlogQuery } from 'utils/query/useBlogQuery'
-import { Hourglass } from 'react95'
-import Spinner from 'components/spinner/Spinner'
+import { useState, useEffect } from 'react'
 
-const options = ['React', 'JavaScript', 'Other'].map((label, index) => ({
+const options = ['all', 'React', 'JavaScript', 'Other'].map((label, index) => ({
   value: index + 1,
   label,
 }))
 
 export default function BlogHome() {
-  const { data, isLoading, isFetching } = useBlogQuery()
+  const [category, setCategory] = useState(options[0])
+  const { data, isLoading, isFetching } = useBlogQuery(category)
   if (isLoading || isFetching) {
     return null
+  }
+
+  const onChangeSelect = data => {
+    setCategory(data)
   }
   return (
     <>
       <Title>천재현의 블로그</Title>
-      <AppWindow.Select options={options} width="40%" />
+      <AppWindow.Select onChange={onChangeSelect} options={options} width="40%" />
       {data.map(item => (
         <BoardItem dataObj={item} key={item.id} />
       ))}
