@@ -24,3 +24,7 @@ export default function App() {
     </QueryClientProvider>
   )
 }
+
+// https://pagespeed.web.dev/analysis/http-neki99-kro-kr/o7ihgvwxtg?form_factor=mobile
+
+// 폰트 woff2 로 바꾸니까 성능 51 -> 76으로 됨

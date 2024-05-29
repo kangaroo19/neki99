@@ -56,6 +56,5 @@ table {
 
 @font-face {
   font-family: 'Galmuri9';
-  src: url('asset/font/Galmuri9.woff2');
-  font-display: fallback !important;
+  src: url('asset/font/Galmuri9.ttf');
 }
