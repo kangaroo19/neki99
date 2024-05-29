@@ -109,7 +109,7 @@ export default function MyInfoWindow() {
     >
       <AppWindow.Header onClick={event => onClickWindowClose('myInfoWindow', event)}>내 정보</AppWindow.Header>
       <AppWindow.Content>
-        <AppWindow.ContentTitle text="프론트엔드 개발자가 되고싶은 천재현 입니다." />
+        {/* <AppWindow.ContentTitle text="프론트엔드 개발자가 되고싶은 천재현 입니다." /> */}
         <AppWindow.ContentSection height="300px">
           <AppWindow.ScrollView width="75%">
             {/* <AppWindow.Image src={banner} alt="아스키아트" width="100%" /> */}
