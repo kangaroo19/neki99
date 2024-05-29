@@ -1,11 +1,15 @@
-import mapleImg from 'asset/images/maple2.jpeg'
+import mapleImg from 'asset/images/maple2.webp'
 import armyImg from 'asset/images/army.webp'
-import monsterImg from 'asset/images/monster.jpg'
-import windowImg from 'asset/images/WIN98SE.jpg'
+import monsterImg from 'asset/images/monster.webp'
+import windowImg from 'asset/images/WIN98SE.webp'
 
 export const dataObj = [
   {
-    title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>개인 웹페이지</div>,
+    title: (
+      <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>
+        개인 웹페이지
+      </div>
+    ),
     content: `
 예전에 바닐라 **자바스크립트** 및 **제이쿼리**로 만든 개인 포트폴리오 사이트를 \n
 **리액트**로 **마이그레이션** 하여 다시 만든 웹페이지 입니다.
@@ -31,7 +35,11 @@ export const dataObj = [
     },
   },
   {
-    title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>몬스터도감</div>,
+    title: (
+      <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>
+        몬스터도감
+      </div>
+    ),
     content: `
 제목은 **몬스터 도감**이지만 사실상 **ToDoList**입니다.\n
 react-query와 react-hook-form을 배우고 학습하기 위해\n
@@ -54,7 +62,11 @@ react-query와 react-hook-form을 배우고 학습하기 위해\n
     },
   },
   {
-    title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>1vs1 같은그림찾기</div>,
+    title: (
+      <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>
+        1vs1 같은그림찾기
+      </div>
+    ),
     content: `
   어릴 때 재미있게 플레이하던\n 
   '**메이플스토리**'라는 게임 안에 있는 미니게임인\n 
@@ -79,7 +91,9 @@ react-query와 react-hook-form을 배우고 학습하기 위해\n
     },
   },
   {
-    title: <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>MTPLANET</div>,
+    title: (
+      <div style={{ background: 'rgb(57, 66, 77)', fontSize: '1.2rem', color: 'white', padding: '3px' }}>MTPLANET</div>
+    ),
     content: `
 **MTPLANET**은 기업정보,리뷰 서비스를 제공하는 \n
 "**잡플래닛**"이라는 사이트와 비슷하게 \n 

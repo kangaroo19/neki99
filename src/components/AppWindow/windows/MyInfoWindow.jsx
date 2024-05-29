@@ -2,11 +2,11 @@
 
 import { Frame, Monitor } from 'react95'
 import AppWindow from '../AppWindow'
-import myFace from 'asset/images/myFace.jpg'
+import myFace from 'asset/images/myFace.webp'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
-import banner from 'asset/images/banner.PNG'
+import banner from 'asset/images/banner.webp'
 
 const MonitorContainer = styled(Monitor)`
   margin: 10px 0;

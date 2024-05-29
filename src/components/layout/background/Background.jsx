@@ -1,11 +1,11 @@
 import styles from './Background.module.css'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import BgIcon from 'components/layout/background/components/BgIcon'
-import myComputer from 'asset/images/myComputer.png'
-import trashIcon from 'asset/images/trash.png'
-import networkIcon from 'asset/images/network.png'
-import neki from 'asset/images/네키.png'
-import notePad from 'asset/images/notepad.png'
+import myComputer from 'asset/images/myComputer.webp'
+import trashIcon from 'asset/images/trash.webp'
+import networkIcon from 'asset/images/network.webp'
+import neki from 'asset/images/네키.webp'
+import notePad from 'asset/images/notepad.webp'
 import { useNavigate } from 'react-router-dom'
 
 export default function Background() {

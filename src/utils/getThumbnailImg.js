@@ -1,4 +1,4 @@
-import errorImg from 'asset/images/noImg.jpg'
+import errorImg from 'asset/images/noImg.webp'
 
 export default function getThumnailImg(htmlString) {
   const parser = new DOMParser()

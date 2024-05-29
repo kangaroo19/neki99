@@ -1,6 +1,6 @@
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import AppWindow from '../AppWindow'
-import errorImg from 'asset/images/error.png'
+import errorImg from 'asset/images/error.webp'
 import styled from 'styled-components'
 
 export default function AlertWindow({ text }) {

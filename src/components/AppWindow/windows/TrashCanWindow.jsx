@@ -1,7 +1,7 @@
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 import AppWindow from '../AppWindow'
 import BgIcon from 'components/layout/background/components/BgIcon'
-import fileIcon from 'asset/images/fileIcon.png'
+import fileIcon from 'asset/images/fileIcon.webp'
 
 export default function TrashCanWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
