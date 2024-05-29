@@ -7,7 +7,7 @@ export default function AlertWindow({ text }) {
   const { onClickWindowClose, onClickWindow } = useAppWindowRender()
   return (
     <AppWindow width="500px" top="30%" left="10%" zIndex={9} onClick={() => onClickWindow('alertWindow')}>
-      <AppWindow.Header onClick={() => onClickWindowClose('alertWindow')}>알림</AppWindow.Header>
+      <AppWindow.Header onClick={event => onClickWindowClose('alertWindow', event)}>알림</AppWindow.Header>
       <AppWindow.Content>
         <AlertContentInner>
           <AppWindow.Image src={errorImg} alt="워닝" width="30%" />

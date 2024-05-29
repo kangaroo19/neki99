@@ -107,7 +107,7 @@ export default function MyInfoWindow() {
       zIndex={windowRenderObj.myInfoWindow.zIndexValue}
       onClick={() => onClickWindow('myInfoWindow')}
     >
-      <AppWindow.Header onClick={() => onClickWindowClose('myInfoWindow')}>내 정보</AppWindow.Header>
+      <AppWindow.Header onClick={event => onClickWindowClose('myInfoWindow', event)}>내 정보</AppWindow.Header>
       <AppWindow.Content>
         <AppWindow.ContentTitle text="프론트엔드 개발자가 되고싶은 천재현 입니다." />
         <AppWindow.ContentSection height="300px">

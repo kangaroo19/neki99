@@ -11,11 +11,11 @@ export default function LoginWindow() {
   const { onClickWindowClose, onClickWindow, windowRenderObj } = useAppWindowRender()
   const { setIsAuthTrue } = useAuthStore()
   const { register, handleSubmit } = useForm()
-  const onSubmitLoginBtn = data => {
+  const onSubmitLoginBtn = (data, event) => {
     if (data.password === process.env.REACT_APP_AUTH) {
       // 비번 맞았을 때
       setIsAuthTrue()
-      onClickWindowClose('loginWindow')
+      onClickWindowClose('loginWindow', event)
     }
   }
 
@@ -28,8 +28,8 @@ export default function LoginWindow() {
       onClick={() => onClickWindow('loginWindow')}
     >
       <AppWindow.Header
-        onClick={() => {
-          onClickWindowClose('loginWindow')
+        onClick={event => {
+          onClickWindowClose('loginWindow', event)
         }}
       >
         로그인

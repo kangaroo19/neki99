@@ -18,8 +18,14 @@ export default function MyProjectsWindow() {
     setCurIdx(prev => prev - 1)
   }
   return (
-    <AppWindow width="500px" top="10%" left="58%" zIndex={windowRenderObj.myProjectWindow.zIndexValue} onClick={() => onClickWindow('myProjectWindow')}>
-      <AppWindow.Header onClick={() => onClickWindowClose('myProjectWindow')}>내 프로젝트</AppWindow.Header>
+    <AppWindow
+      width="500px"
+      top="10%"
+      left="58%"
+      zIndex={windowRenderObj.myProjectWindow.zIndexValue}
+      onClick={() => onClickWindow('myProjectWindow')}
+    >
+      <AppWindow.Header onClick={event => onClickWindowClose('myProjectWindow', event)}>내 프로젝트</AppWindow.Header>
       <AppWindow.Content height="80%">
         <AppWindow.ContentSection height={viewPortSize !== 'mobile' ? '400px' : '100%'}>
           <ImageFrame variant="field">

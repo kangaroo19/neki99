@@ -36,8 +36,8 @@ export default function BlogWindow() {
         onClick={() => onClickWindow('blogWindow')}
       >
         <AppWindow.Header
-          onClick={() => {
-            onClickWindowClose('blogWindow')
+          onClick={event => {
+            onClickWindowClose('blogWindow', event)
             navigate('/') // 홈으로 이동
           }}
         >

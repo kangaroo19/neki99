@@ -13,7 +13,7 @@ export default function TrashCanWindow() {
       zIndex={windowRenderObj.trashCanWindow.zIndexValue}
       onClick={() => onClickWindow('trashCanWindow')}
     >
-      <AppWindow.Header onClick={() => onClickWindowClose('trashCanWindow')}>휴지통</AppWindow.Header>
+      <AppWindow.Header onClick={event => onClickWindowClose('trashCanWindow', event)}>휴지통</AppWindow.Header>
       <AppWindow.HeadMenu />
       <AppWindow.Content>
         <AppWindow.ContentSection height="300px">
