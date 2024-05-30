@@ -6,7 +6,7 @@ export const useAppWindowRender = create(set => ({
   windowRenderObj: {
     myInfoWindow: {
       zIndexValue: 3, // 이 윈도우창의 zIndex 속성에 할당할 값
-      isOpen: true, // 열려있는 상태인지 아닌지
+      isOpen: false, // 열려있는 상태인지 아닌지
     },
     myProjectWindow: {
       zIndexValue: 2,

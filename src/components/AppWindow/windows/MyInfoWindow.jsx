@@ -114,7 +114,7 @@ export default function MyInfoWindow() {
           <AppWindow.ScrollView width="75%">
             {/* <AppWindow.Image src={banner} alt="아스키아트" width="100%" /> */}
             <MonitorContainer>
-              {/* <Img src={myFace} alt="myFace" /> */}
+              <Img src={myFace} alt="myFace" />
             </MonitorContainer>
             {markdownObj.map(item => (
               <>
