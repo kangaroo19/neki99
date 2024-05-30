@@ -1,7 +1,7 @@
 import mapleImg from 'asset/images/maple2.webp'
 import armyImg from 'asset/images/army.webp'
 import monsterImg from 'asset/images/monster.webp'
-import windowImg from 'asset/images/WIN98SE.webp'
+import windowImg from 'asset/images/WIN98SE2.webp'
 
 export const dataObj = [
   {
