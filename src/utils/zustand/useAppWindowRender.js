@@ -10,7 +10,7 @@ export const useAppWindowRender = create(set => ({
     },
     myProjectWindow: {
       zIndexValue: 2,
-      isOpen: true,
+      isOpen: false,
     },
     trashCanWindow: {
       zIndexValue: 2,
