@@ -17,7 +17,7 @@ export default function BlogHome() {
   if (isLoading || isFetching) {
     return null
   }
-
+  console.log(data)
   const onChangeSelect = data => {
     setCategory(data)
   }

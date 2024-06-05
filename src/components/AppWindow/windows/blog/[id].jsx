@@ -1,28 +1,28 @@
 /* eslint-disable */
 
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import 'highlight.js/styles/github.css' // 코드 하이라이트 스타일 적용
 import 'react-quill/dist/quill.snow.css'
-import { Suspense } from 'react'
-import { Hourglass } from 'react95'
+import { useGetBlogDetail } from 'utils/query/useBlogQuery'
 
 export default function BlogDetail() {
-  const location = useLocation()
-  const {
-    state: { item },
-  } = location
+  const { id } = useParams()
+  const { data, isLoading, isFetching } = useGetBlogDetail(id)
+  console.log(data)
+
+  if (isFetching || isLoading) return '12312'
   return (
-    <Suspense fallback={<Hourglass />}>
+    <>
       <TitleWrapper>
-        <Title>{item.title}</Title>
+        <Title>{data.title}</Title>
         <쩌리컨테이너>
-          <게시물생성날짜>생성일 : {item.createdAt}</게시물생성날짜>
+          <게시물생성날짜>생성일 : {data.createdAt}</게시물생성날짜>
           <삭제및수정>수정/삭제</삭제및수정>
         </쩌리컨테이너>
       </TitleWrapper>
-      <마크다운 dangerouslySetInnerHTML={{ __html: item.content }} />
-    </Suspense>
+      <마크다운 dangerouslySetInnerHTML={{ __html: data.content }} />
+    </>
   )
 }
 

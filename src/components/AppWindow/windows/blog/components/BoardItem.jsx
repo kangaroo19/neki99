@@ -1,15 +1,21 @@
 import styled from 'styled-components'
 import ContentImg from '../../../components/ContentImg'
 import { Link } from 'react-router-dom'
-import getThumnailImg from 'utils/getThumbnailImg'
+import { useGetBlogDetail } from 'utils/query/useBlogQuery'
 
 export default function BoardItem({ dataObj }) {
+  const { refetch, isLoading, isFetching } = useGetBlogDetail(dataObj.id)
+  const onClick = () => {
+    refetch()
+    // console.log(dataObj)
+  }
+  if (isFetching || isLoading) return null
   return (
     <BoardItemWrapper>
       <ImgWrapper>
-        <ContentImg src={getThumnailImg(dataObj.content)} width="100%" height="100%" />
+        <ContentImg src={dataObj.img} width="100%" height="100%" />
       </ImgWrapper>
-      <TextWrapperLink to={`/blog/${dataObj.id}`} state={{ item: dataObj }}>
+      <TextWrapperLink onClick={onClick} to={`/blog/${dataObj.id}`}>
         <BoardTitle>{dataObj.title}</BoardTitle>
         <BoardContent>{dataObj.summary}</BoardContent>
       </TextWrapperLink>

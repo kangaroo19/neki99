@@ -5,36 +5,36 @@ export const useAppWindowRender = create(set => ({
   zIndexTemp: 1, // 어떤 윈도우 클릭하거나 열때 해당 윈도우 zindex 가장 높은 값으로 설정 위함
   windowRenderObj: {
     myInfoWindow: {
-      zIndexValue: 3, // 이 윈도우창의 zIndex 속성에 할당할 값
-      isOpen: true, // 열려있는 상태인지 아닌지
+      zIndexValue: 1, // 이 윈도우창의 zIndex 속성에 할당할 값
+      isOpen: false, // 열려있는 상태인지 아닌지
     },
     myProjectWindow: {
-      zIndexValue: 2,
-      isOpen: true,
+      zIndexValue: 1,
+      isOpen: false,
     },
     trashCanWindow: {
-      zIndexValue: 2,
+      zIndexValue: 1,
       isOpen: false,
     },
     guestBookWindow: {
-      zIndexValue: 2,
+      zIndexValue: 1,
       isOpen: false,
     },
     blogWindow: {
-      zIndexValue: 2,
+      zIndexValue: 1,
       isOpen: false,
     },
     alertWindow: {
-      zIndexValue: 2, // 이 윈도우창의 zIndex 속성에 할당할 값
+      zIndexValue: 1, // 이 윈도우창의 zIndex 속성에 할당할 값
       isOpen: false, // 열려있는 상태인지 아닌지
     },
     loginWindow: {
-      zIndexValue: 2, // 이 윈도우창의 zIndex 속성에 할당할 값
+      zIndexValue: 1, // 이 윈도우창의 zIndex 속성에 할당할 값
       isOpen: false, // 열려있는 상태인지 아닌지
     },
     helpWindow: {
       // infoWindow로 하려했는데 myInfoWindow와 네이밍 겹쳐서..
-      zIndexValue: 2, // 이 윈도우창의 zIndex 속성에 할당할 값
+      zIndexValue: 1, // 이 윈도우창의 zIndex 속성에 할당할 값
       isOpen: true, // 열려있는 상태인지 아닌지
     },
   },
@@ -53,8 +53,6 @@ export const useAppWindowRender = create(set => ({
   },
   onClickWindowClose: (name, event) => {
     event.stopPropagation()
-    console.log('onCLickWindowClose')
-
     set(state => ({
       windowRenderObj: {
         ...state.windowRenderObj,
@@ -63,7 +61,6 @@ export const useAppWindowRender = create(set => ({
     }))
   },
   onClickWindowOpen: name => {
-    console.log('onCLickWindowOpen')
     set(state => {
       const newState = {
         ...state,

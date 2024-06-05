@@ -54,16 +54,10 @@ export default function BlogWindow() {
                   </Spinner.Container>
                 }
               >
-                <ListWrapper
-                  fallback={
-                    <Spinner.Container width="100%" height="100%">
-                      <Spinner.Icon size={100} />
-                    </Spinner.Container>
-                  }
-                >
+                <ListWrapper>
                   <Routes>
                     <Route path="/" element={<BlogHome />} />
-                    <Route path="/*" element={<BlogDetail />} />
+                    <Route path="/:id" element={<BlogDetail />} />
                     <Route path="/textEdit" element={<TextEdit />} />
                   </Routes>
                 </ListWrapper>
