@@ -7,7 +7,6 @@ export default function BoardItem({ dataObj }) {
   const { refetch, isLoading, isFetching } = useGetBlogDetail(dataObj.id)
   const onClick = () => {
     refetch()
-    // console.log(dataObj)
   }
   if (isFetching || isLoading) return null
   return (

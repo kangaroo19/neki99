@@ -17,7 +17,6 @@ export default function BlogHome() {
   if (isLoading || isFetching) {
     return null
   }
-  console.log(data)
   const onChangeSelect = data => {
     setCategory(data)
   }
@@ -25,9 +24,11 @@ export default function BlogHome() {
     <>
       <Title>천재현의 블로그</Title>
       <AppWindow.Select onChange={onChangeSelect} options={options} width="40%" />
-      {data.map(item => (
-        <BoardItem dataObj={item} key={item.id} />
-      ))}
+      {data.length > 0 ? (
+        data.map(item => <BoardItem dataObj={item} key={item.id} />)
+      ) : (
+        <NoDataResult>게시물이 없습니다.</NoDataResult>
+      )}
     </>
   )
 }
@@ -52,4 +53,10 @@ const ListWrapper = styled.div`
   @media screen and (max-width: 600px) {
     width: 100%;
   }
+`
+
+const NoDataResult = styled.div`
+  height: 400px;
+  font-size: 2rem;
+  text-align: center;
 `
