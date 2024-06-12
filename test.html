@@ -1,0 +1,14 @@
+/*eslint-disable */
+
+function makeAdder(x) {
+  return function add(y) {
+    return x + y
+  }
+}
+
+const add3 = makeAdder(3)
+console.log(add3(2))
+
+const add10 = makeAdder(10)
+console.log(add10(10))
+console.log(add3(123))
