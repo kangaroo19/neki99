@@ -45,7 +45,7 @@ const TaskContainer = styled.div`
   align-items: center;
 `
 const StartButton = styled(Button)`
-  width: 6%;
+  display: inline;
   height: 100%;
   font-size: 100%;
   white-space: nowrap;
