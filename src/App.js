@@ -14,6 +14,7 @@ const queryClient = new QueryClient()
 export default function App() {
   const { closeAllWindow } = useAppWindowRender()
   useEscapeKey(closeAllWindow) // esc키 입력 시 모든창 close
+  
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={original}>

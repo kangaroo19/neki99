@@ -98,6 +98,7 @@ const getOtherBlogList = async () => {
   }
 }
 const postBlogItem = async data => {
+  console.log(data)
   const blogRef = doc(collection(db, 'blog'))
   await setDoc(blogRef, {
     category: data.category,
@@ -119,7 +120,7 @@ export const useBlogQuery = category => {
 }
 export const useBlogItemMutation = () => {
   return useMutation({
-    mutationFn: postBlogItem,
+    mutationFn: (data)=>postBlogItem(data),
   })
 }
 
