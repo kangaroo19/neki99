@@ -12,6 +12,7 @@ import 'highlight.js/styles/github.css'
 import { useFormContext } from 'react-hook-form'
 import useImageHandler from 'utils/hook/quill/useImageHandler'
 import styled from 'styled-components'
+import { useEffect } from 'react'
 
 Quill.register('modules/ImageResize', ImageResize)
 Quill.register('modules/imageDropAndPaste', QuillImageDropAndPaste)
@@ -20,7 +21,7 @@ hljs.configure({
   languages: ['javascript', 'ruby', 'python', 'rust'],
 })
 
-export default function QuillEditor() {
+export default function QuillEditor({ updateData }) {
   const { imageHandler, quillRef, imageUrl } = useImageHandler()
 
   // 이미지 핸들러
@@ -69,7 +70,9 @@ export default function QuillEditor() {
   const handleChange = content => {
     setValue('content', content)
   }
-
+  useEffect(() => {
+    setValue('content', updateData)
+  }, [])
   return (
     <div className="ql-snow">
       <ReactQuillStyled
