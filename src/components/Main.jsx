@@ -3,6 +3,7 @@ import Layout from './layout/Layout'
 import ReactFloatingProfile from 'react-floating-profile'
 
 export default function Main() {
+  const githubApiKey = process.env.REACT_APP_GITHUB_API_KEY
   return (
     <Layout>
       <Layout.Background />
@@ -11,7 +12,8 @@ export default function Main() {
       <AppRouter />
       <ReactFloatingProfile
         userName="kangaroo19" // required
-        // 💡 accessToken is not required, but it's recommended to avoid GitHub API rate limits.
+        accessToken={githubApiKey} // props로 전달
+        pinnedRepoArr={['neki99', 'react-floating-profile']}
         location="top-right"
       />
     </Layout>
