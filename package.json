@@ -41,7 +41,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://neki99.kro.kr",
+  "homepage": "https://kangaroo19.github.io/neki99",
   "eslintConfig": {
     "extends": [
       "react-app",
