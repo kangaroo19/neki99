@@ -1,12 +1,10 @@
-/* eslint-disable */
-
 import { Frame, Monitor } from 'react95'
+import { Fragment } from 'react'
 import AppWindow from '../AppWindow'
 import myFace from 'asset/images/myFace.webp'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
-import banner from 'asset/images/banner.webp'
 
 const MonitorContainer = styled(Monitor)`
   margin: 10px 0;
@@ -120,10 +118,10 @@ export default function MyInfoWindow() {
               <Img src={myFace} alt="myFace" />
             </MonitorContainer>
             {markdownObj.map(item => (
-              <>
-                {item.title && <MarkdownTitle key={Math.random()}>{item.title}</MarkdownTitle>}
-                <MarkdownContent key={Math.random()}>{item.content}</MarkdownContent>
-              </>
+              <Fragment key={item.id}>
+                {item.title && <MarkdownTitle>{item.title}</MarkdownTitle>}
+                <MarkdownContent>{item.content}</MarkdownContent>
+              </Fragment>
             ))}
           </AppWindow.ScrollView>
           <AppWindow.Nav />
