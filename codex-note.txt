@@ -1,0 +1,2 @@
+Modified by Codex on 2026-03-22.
+Purpose: leave a safe, no-op file change in the workspace.
