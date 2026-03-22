@@ -15,7 +15,6 @@ export default function TextEdit() {
   const method = useForm()
   const location = useLocation()
   const updateData = location.state
-  console.log(updateData)
   const navigate = useNavigate()
   const { mutate } = useBlogItemMutation()
   const onClickSubmitButton = (method, data) => {
