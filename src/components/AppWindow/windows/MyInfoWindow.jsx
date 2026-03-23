@@ -20,9 +20,20 @@ const MarkdownContent = styled(Markdown)`
   padding: 0 10px;
 `
 
+const birthYear = 1999
+
+function getCurrentAgeText() {
+  const currentYear = new Date().getFullYear()
+  const currentAge = currentYear - birthYear + 1
+
+  return `${currentAge}세(${birthYear}년생)`
+}
+
+const currentAgeText = getCurrentAgeText()
+
 const markdownContent = `
 - 😀이름 : 천재현
-- 👀나이 : 26세(99년생)
+- 👀나이 : ${currentAgeText}
 - 🏫서일대학교 컴퓨터전자공학
 - 📩이메일 : 1000jjj@naver.com
 - 📱휴대폰 : 010-6495-2314

@@ -10,7 +10,7 @@ export const useAppWindowRender = create(set => ({
     },
     myProjectWindow: {
       zIndexValue: 1,
-      isOpen: true,
+      isOpen: false,
     },
     trashCanWindow: {
       zIndexValue: 1,
@@ -35,7 +35,7 @@ export const useAppWindowRender = create(set => ({
     helpWindow: {
       // infoWindow로 하려했는데 myInfoWindow와 네이밍 겹쳐서..
       zIndexValue: 1, // 이 윈도우창의 zIndex 속성에 할당할 값
-      isOpen: true, // 열려있는 상태인지 아닌지
+      isOpen: false, // 열려있는 상태인지 아닌지
     },
   },
   onClickWindow: name => {
