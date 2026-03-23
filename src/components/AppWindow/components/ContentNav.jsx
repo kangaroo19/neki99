@@ -10,11 +10,11 @@ export default function ContentNav() {
       <CustomButton primary onClick={() => onClickRouteBtn('https://github.com/kangaroo19')}>
         GitHub
       </CustomButton>
-      <CustomButton primary onClick={() => onClickRouteBtn('https://kangcheon.tistory.com/')}>
-        Blog
+      <CustomButton primary onClick={() => onClickRouteBtn('https://www.npmjs.com/package/react-floating-profile')}>
+        NPM
       </CustomButton>
-      <CustomButton primary onClick={() => onClickRouteBtn('https://www.notion.so/442406f327bd4af5835947bc7f7d1c98')}>
-        Notion
+      <CustomButton primary onClick={() => onClickRouteBtn('https://www.linkedin.com/in/jaehyun-cheon-84891a2b8/')}>
+        LinkedIn
       </CustomButton>
     </ButtonContainer>
   )

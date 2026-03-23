@@ -90,28 +90,12 @@ const skillItems = [
     logoSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
   },
   {
-    name: 'Vue.js',
-    logoSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+    name: 'PHP',
+    logoSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
   },
   {
-    name: 'Zustand',
-    logoSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zustand/zustand-original.svg',
-  },
-  {
-    name: 'React Query',
-    logoSrc: 'https://cdn.simpleicons.org/reactquery/FF4154',
-  },
-  {
-    name: 'Material UI',
-    logoSrc: 'https://cdn.simpleicons.org/mui/007FFF',
-  },
-  {
-    name: 'React Hook Form',
-    logoSrc: 'https://cdn.simpleicons.org/reacthookform/EC5990',
-  },
-  {
-    name: 'Firebase',
-    logoSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
+    name: 'Python',
+    logoSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
   },
 ]
 
@@ -122,21 +106,14 @@ const introMarkdownContent = `
 - 📩이메일 : 1000jjj@naver.com
 
 ## 👋안녕하세요👋
+**React** 기반의 프론트엔드 개발자 천재현입니다.
 
-사용자와 팀이 모두 편하게 느낄 수 있는 화면을 만드는 프론트엔드 개발자입니다.
+**AI**를 활용해 1인 이상의 가치를 만들어내는 데 관심이 많습니다.
 
-모르는 것을 빠르게 인정하고, 구조를 정리하며, 오래 유지할 수 있는 코드를 만드는 태도를 중요하게 생각합니다.
-
-최근에는 오픈소스 활동과 실무 경험을 함께 쌓으며, 화면 구현을 넘어 제품 전체 흐름과 유지보수성까지 함께 보는 시야를 키우고 있습니다.
+단순히 도구를 쓰는 것을 넘어,
+작업을 시스템으로 바꾸는 데 집중합니다.
 
 ## 🖥️커리어🖥️
-
-### 금성인터내셔널 (2023/08 ~ 2024/02)
-
-- MUI 기반 백오피스 화면에서 통계 및 관리 기능을 구현했습니다.
-- 백엔드 API와 연동해 CRUD 기능을 개발하고 사용자 흐름을 안정적으로 연결했습니다.
-- zustand를 활용해 화면 상태를 관리하고 공통 컴포넌트를 구축했습니다.
-- 서비스 전반의 CSS 작업을 담당하며 일관된 UI를 정리했습니다.
 
 ### 오토오모니터 (2024/07 ~ )
 
@@ -147,6 +124,13 @@ const introMarkdownContent = `
 - Vue.js 기반 퍼포먼스 마케팅 대시보드 웹앱을 개발해 데이터 시각화를 지원했습니다.
 - 커뮤니티, 카페, 블로그, 인스타그램, 페이스북 등 다양한 채널의 데이터 수집 로직과 연동 UI를 개발했습니다.
 - 운영 중인 서비스의 유지보수와 기능 개선, 이슈 대응을 맡으며 안정성을 높였습니다.
+
+### 금성인터내셔널 (2023/08 ~ 2024/02)
+
+- MUI 기반 백오피스 화면에서 통계 및 관리 기능을 구현했습니다.
+- 백엔드 API와 연동해 CRUD 기능을 개발하고 사용자 흐름을 안정적으로 연결했습니다.
+- zustand를 활용해 화면 상태를 관리하고 공통 컴포넌트를 구축했습니다.
+- 서비스 전반의 CSS 작업을 담당하며 일관된 UI를 정리했습니다.
 `
 
 const licenseMarkdownContent = `
