@@ -1,19 +1,122 @@
-import { Monitor } from 'react95'
 import AppWindow from '../AppWindow'
-import myFace from 'asset/images/myFace.webp'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
 
-const MonitorContainer = styled(Monitor)`
-  margin: 10px 0;
+const RetroHero = styled.div`
+  width: 100%;
+  min-height: 210px;
+  padding: 18px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0,
+      rgba(255, 255, 255, 0.05) 2px,
+      rgba(0, 0, 0, 0.08) 2px,
+      rgba(0, 0, 0, 0.08) 4px
+    ),
+    linear-gradient(180deg, #0f5f5c 0%, #0a3d3b 100%);
+  box-sizing: border-box;
+  color: #dbfff5;
 `
 
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
+const RetroHeroHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+`
+
+const RetroSignal = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+`
+
+const RetroSignalDot = styled.span`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #8cff9a;
+  box-shadow: 0 0 10px rgba(140, 255, 154, 0.8);
+`
+
+const RetroHeroContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`
+
+const RetroKicker = styled.div`
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9be5d3;
+`
+
+const RetroHeadline = styled.h2`
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #ffffff;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.55rem;
+  }
+`
+
+const RetroSubline = styled.p`
+  margin: 0;
+  max-width: 500px;
+  line-height: 1.6;
+  color: #d3fff1;
+`
+
+const RetroBadgeRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`
+
+const RetroBadge = styled.span`
+  padding: 5px 9px;
+  border: 1px solid rgba(219, 255, 245, 0.45);
+  background: rgba(5, 28, 27, 0.4);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+`
+
+const RetroFooter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(219, 255, 245, 0.28);
+  font-size: 0.8rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`
+
+const RetroFooterLabel = styled.span`
+  color: #9be5d3;
+`
+
+const RetroFooterValue = styled.span`
+  color: #ffffff;
+  font-weight: 700;
 `
 
 const MarkdownContent = styled(Markdown)`
@@ -156,9 +259,32 @@ export default function MyInfoWindow() {
         <AppWindow.ContentSection height="420px">
           <AppWindow.ScrollView width="75%">
             {/* <AppWindow.Image src={banner} alt="아스키아트" width="100%" /> */}
-            <MonitorContainer>
-              <Img src={myFace} alt="myFace" />
-            </MonitorContainer>
+            <RetroHero>
+              <RetroHeroHeader>
+                <RetroSignal>
+                  <RetroSignalDot />
+                  <span>System Ready</span>
+                </RetroSignal>
+                <span>Profile.exe</span>
+              </RetroHeroHeader>
+              <RetroHeroContent>
+                <RetroKicker>Windows 95 Developer Card</RetroKicker>
+                <RetroHeadline>CHEON JAE HYEON</RetroHeadline>
+                <RetroSubline>
+                  보기 좋은 화면만 만드는 게 아니라, 오래 고칠 수 있는 구조까지 같이 만드는 프론트엔드 개발자입니다.
+                </RetroSubline>
+                <RetroBadgeRow>
+                  <RetroBadge>React</RetroBadge>
+                  <RetroBadge>Next.js</RetroBadge>
+                  <RetroBadge>PHP</RetroBadge>
+                  <RetroBadge>Python</RetroBadge>
+                </RetroBadgeRow>
+              </RetroHeroContent>
+              <RetroFooter>
+                <RetroFooterLabel>Current Mode</RetroFooterLabel>
+                <RetroFooterValue>Building products, not just pages</RetroFooterValue>
+              </RetroFooter>
+            </RetroHero>
             <MarkdownContent>{introMarkdownContent}</MarkdownContent>
             <SkillSection>
               <SkillTitle>👨‍💻보유기술👨‍💻</SkillTitle>
