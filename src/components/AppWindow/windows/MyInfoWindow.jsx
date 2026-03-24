@@ -119,44 +119,138 @@ const RetroFooterValue = styled.span`
   font-weight: 700;
 `
 
+const WindowBody = styled.div`
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #c3c7cb;
+`
+
+const SectionWindow = styled.section`
+  position: relative;
+  padding-top: 14px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  background: linear-gradient(180deg, #ebe7dd 0%, #d4d0c8 100%);
+  box-shadow: inset 1px 1px 0 #dfdfdf;
+`
+
+const SectionLabel = styled.div`
+  position: absolute;
+  top: -1px;
+  left: 12px;
+  padding: 3px 8px 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  background: #c3c7cb;
+  color: #202020;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+`
+
+const SectionMeta = styled.span`
+  font-size: 0.72rem;
+  color: #4f4f4f;
+`
+
+const SectionBody = styled.div`
+  padding: 16px 12px 14px;
+`
+
 const MarkdownContent = styled(Markdown)`
-  padding: 0 10px;
+  color: #1d1d1d;
+  line-height: 1.6;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  h2,
+  h3 {
+    margin: 0 0 10px;
+    color: #0a2c88;
+  }
+
+  p,
+  li {
+    font-size: 0.93rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  p + p {
+    margin-top: 10px;
+  }
+
+  strong {
+    color: #111111;
+  }
 `
 
 const SkillSection = styled.section`
-  padding: 0 10px 16px;
+  padding: 0;
 `
 
 const SkillTitle = styled.h2`
-  margin: 24px 0 10px;
-  font-size: 1.15rem;
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #0a2c88;
 `
 
 const SkillDescription = styled.p`
   margin: 0 0 14px;
   line-height: 1.5;
+  font-size: 0.92rem;
 `
 
 const SkillGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 12px;
 `
 
 const SkillCard = styled.div`
-  min-height: 96px;
-  padding: 12px 10px;
+  min-height: 102px;
+  padding: 14px 10px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  position: relative;
   border-top: 2px solid #ffffff;
   border-left: 2px solid #ffffff;
   border-right: 2px solid #7a7a7a;
   border-bottom: 2px solid #7a7a7a;
-  background: linear-gradient(180deg, #f3f3f3 0%, #dddddd 100%);
+  background: linear-gradient(180deg, #f8f5ef 0%, #dfd8cd 100%);
   box-sizing: border-box;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #287d78;
+  }
 `
 
 const SkillLogo = styled.img`
@@ -202,22 +296,22 @@ const skillItems = [
   },
 ]
 
-const introMarkdownContent = `
+const profileMarkdownContent = `
 - 😀이름 : 천재현
 - 👀나이 : ${currentAgeText}
 - 🏫서일대학교 컴퓨터전자공학
 - 📩이메일 : 1000jjj@naver.com
 
-## 👋안녕하세요👋
+## 
 **React** 기반의 프론트엔드 개발자 천재현입니다.
 
 **AI**를 활용해 1인 이상의 가치를 만들어내는 데 관심이 많습니다.
 
 단순히 도구를 쓰는 것을 넘어,
 작업을 시스템으로 바꾸는 데 집중합니다.
+`
 
-## 🖥️커리어🖥️
-
+const careerMarkdownContent = `
 ### 오토오모니터 (2024/07 ~ )
 
 개발팀 매니저로서 자사 솔루션의 프론트엔드 구조 개선과 신규 서비스 개발을 주도하고 있습니다.
@@ -258,47 +352,87 @@ export default function MyInfoWindow() {
         <AppWindow.ContentTitle text="프론트엔드 개발자 천재현 입니다." />
         <AppWindow.ContentSection height="420px">
           <AppWindow.ScrollView width="75%">
-            {/* <AppWindow.Image src={banner} alt="아스키아트" width="100%" /> */}
-            <RetroHero>
-              <RetroHeroHeader>
-                <RetroSignal>
-                  <RetroSignalDot />
-                  <span>System Ready</span>
-                </RetroSignal>
-                <span>Profile.exe</span>
-              </RetroHeroHeader>
-              <RetroHeroContent>
-                <RetroKicker>Windows 95 Developer Card</RetroKicker>
-                <RetroHeadline>CHEON JAE HYEON</RetroHeadline>
-                <RetroSubline>
-                  보기 좋은 화면만 만드는 게 아니라, 오래 고칠 수 있는 구조까지 같이 만드는 프론트엔드 개발자입니다.
-                </RetroSubline>
-                <RetroBadgeRow>
-                  <RetroBadge>React</RetroBadge>
-                  <RetroBadge>Next.js</RetroBadge>
-                  <RetroBadge>PHP</RetroBadge>
-                  <RetroBadge>Python</RetroBadge>
-                </RetroBadgeRow>
-              </RetroHeroContent>
-              <RetroFooter>
-                <RetroFooterLabel>Current Mode</RetroFooterLabel>
-                <RetroFooterValue>Building products, not just pages</RetroFooterValue>
-              </RetroFooter>
-            </RetroHero>
-            <MarkdownContent>{introMarkdownContent}</MarkdownContent>
-            <SkillSection>
-              <SkillTitle>👨‍💻보유기술👨‍💻</SkillTitle>
-              <SkillDescription>실무에서 자주 사용한 기술을 중심으로 정리했습니다.</SkillDescription>
-              <SkillGrid>
-                {skillItems.map(skillItem => (
-                  <SkillCard key={skillItem.name}>
-                    <SkillLogo src={skillItem.logoSrc} alt={skillItem.name} />
-                    <SkillName>{skillItem.name}</SkillName>
-                  </SkillCard>
-                ))}
-              </SkillGrid>
-            </SkillSection>
-            <MarkdownContent>{licenseMarkdownContent}</MarkdownContent>
+            <WindowBody>
+              <>
+                <RetroHero>
+                  <RetroHeroHeader>
+                    <RetroSignal>
+                      <RetroSignalDot />
+                      <span>System Ready</span>
+                    </RetroSignal>
+                    <span>Profile.exe</span>
+                  </RetroHeroHeader>
+                  <RetroHeroContent>
+                    <RetroKicker>Windows 95 Developer Card</RetroKicker>
+                    <RetroHeadline>CHEON JAE HYEON</RetroHeadline>
+                    <RetroSubline>
+                      보기 좋은 화면만 만드는 게 아니라, 오래 고칠 수 있는 구조까지 같이 만드는 프론트엔드 개발자입니다.
+                    </RetroSubline>
+                    <RetroBadgeRow>
+                      <RetroBadge>React</RetroBadge>
+                      <RetroBadge>Next.js</RetroBadge>
+                      <RetroBadge>PHP</RetroBadge>
+                      <RetroBadge>Python</RetroBadge>
+                    </RetroBadgeRow>
+                  </RetroHeroContent>
+                  <RetroFooter>
+                    <RetroFooterLabel>Current Mode</RetroFooterLabel>
+                    <RetroFooterValue>Building products, not just pages</RetroFooterValue>
+                  </RetroFooter>
+                </RetroHero>
+
+                <SectionWindow>
+                  <SectionLabel>
+                    <span>Intro.txt</span>
+                    <SectionMeta>Readable / Structured</SectionMeta>
+                  </SectionLabel>
+                  <SectionBody>
+                    <MarkdownContent>{profileMarkdownContent}</MarkdownContent>
+                  </SectionBody>
+                </SectionWindow>
+
+                <SectionWindow>
+                  <SectionLabel>
+                    <span>Career.log</span>
+                    <SectionMeta>Work History</SectionMeta>
+                  </SectionLabel>
+                  <SectionBody>
+                    <MarkdownContent>{careerMarkdownContent}</MarkdownContent>
+                  </SectionBody>
+                </SectionWindow>
+
+                <SectionWindow>
+                  <SectionLabel>
+                    <span>Skills.ini</span>
+                    <SectionMeta>Primary Stack</SectionMeta>
+                  </SectionLabel>
+                  <SectionBody>
+                    <SkillSection>
+                      <SkillTitle>👨‍💻보유기술👨‍💻</SkillTitle>
+                      <SkillDescription>실무에서 자주 사용한 기술을 중심으로 정리했습니다.</SkillDescription>
+                      <SkillGrid>
+                        {skillItems.map(skillItem => (
+                          <SkillCard key={skillItem.name}>
+                            <SkillLogo src={skillItem.logoSrc} alt={skillItem.name} />
+                            <SkillName>{skillItem.name}</SkillName>
+                          </SkillCard>
+                        ))}
+                      </SkillGrid>
+                    </SkillSection>
+                  </SectionBody>
+                </SectionWindow>
+
+                <SectionWindow>
+                  <SectionLabel>
+                    <span>License.dat</span>
+                    <SectionMeta>Certification</SectionMeta>
+                  </SectionLabel>
+                  <SectionBody>
+                    <MarkdownContent>{licenseMarkdownContent}</MarkdownContent>
+                  </SectionBody>
+                </SectionWindow>
+              </>
+            </WindowBody>
           </AppWindow.ScrollView>
           <AppWindow.Nav />
         </AppWindow.ContentSection>
