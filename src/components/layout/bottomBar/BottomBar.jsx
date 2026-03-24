@@ -1,14 +1,25 @@
 import { AppBar, Button, Toolbar } from 'react95'
 import styled from 'styled-components'
-import TaskBtn from './components/TaskBtn'
 import { TimeDisplay } from './components/TimeDisplay'
 import StartMenu from './components/StartMenu'
 import { useCurrentTimeHook } from 'utils/hook/useCurrentTimeHook'
 import { useStartMenuStore } from 'utils/zustand/useStartMenuStore'
+import { useAppWindowRender } from 'utils/zustand/useAppWindowRender'
+
+const taskWindowList = [
+  { key: 'myInfoWindow', label: '내 정보' },
+  { key: 'myProjectWindow', label: '프로젝트' },
+  { key: 'trashCanWindow', label: '휴지통' },
+  { key: 'guestBookWindow', label: '방명록' },
+  { key: 'loginWindow', label: '로그인' },
+]
 
 export default function BottomBar() {
   const { time, date } = useCurrentTimeHook() // 현재 시간 리턴하는 커스텀 훅
   const { isMenuOpen, onClickStartBtn } = useStartMenuStore() // 상태 공유위한 zustand 함수
+  const { windowRenderObj, onClickWindow } = useAppWindowRender()
+
+  const openWindowList = taskWindowList.filter(windowItem => windowRenderObj[windowItem.key].isOpen)
 
   return (
     <AppBarContainer>
@@ -18,7 +29,16 @@ export default function BottomBar() {
           <StartButtonText>Start</StartButtonText>
         </StartButton>
         <TaskContainer>
-          <TaskBtn />
+          {openWindowList.map(windowItem => (
+            <TaskButton key={windowItem.key} onClick={() => onClickWindow(windowItem.key)}>
+              <TaskButtonAccent />
+              <TaskButtonContent>
+                <TaskButtonLabel>{windowItem.label}</TaskButtonLabel>
+                <TaskButtonDescription>NEKI99 Portfolio</TaskButtonDescription>
+              </TaskButtonContent>
+              <TaskButtonStatus />
+            </TaskButton>
+          ))}
         </TaskContainer>
         <TimeDisplay time={time} date={date} />
       </BottomToolbar>
@@ -60,8 +80,106 @@ const TaskContainer = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+  gap: 6px;
   min-width: 0;
   padding: 2px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+const TaskButton = styled.button`
+  width: min(420px, 100%);
+  height: 100%;
+  min-width: 0;
+  padding: 0 14px 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 220px;
+  box-sizing: border-box;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #6d6d6d;
+  border-bottom: 2px solid #6d6d6d;
+  background: linear-gradient(180deg, #f2f2f2 0%, #d7d7d7 100%);
+  box-shadow:
+    inset 1px 1px 0 #ececec,
+    inset -1px -1px 0 #9b9b9b;
+  cursor: pointer;
+
+  &:focus {
+    outline: 1px dotted #222222;
+    outline-offset: -4px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    flex-basis: 160px;
+    padding: 0 10px 0 8px;
+    gap: 8px;
+  }
+`
+
+const TaskButtonAccent = styled.span`
+  width: 10px;
+  height: 28px;
+  flex-shrink: 0;
+  border-top: 1px solid #bfffe0;
+  border-left: 1px solid #bfffe0;
+  border-right: 1px solid #12573a;
+  border-bottom: 1px solid #12573a;
+  background: linear-gradient(180deg, #1fb26c 0%, #0f7a46 100%);
+
+  @media screen and (max-width: 600px) {
+    width: 8px;
+    height: 24px;
+  }
+`
+
+const TaskButtonContent = styled.div`
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+`
+
+const TaskButtonLabel = styled.span`
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #1d1d1d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+const TaskButtonDescription = styled.span`
+  font-size: 0.72rem;
+  line-height: 1;
+  color: #4a4a4a;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+`
+
+const TaskButtonStatus = styled.span`
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #0f7a46;
+  box-shadow: 0 0 0 1px #d9ffe8, 0 0 6px rgba(15, 122, 70, 0.45);
 `
 
 const StartButton = styled(Button)`
