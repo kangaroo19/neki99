@@ -341,7 +341,7 @@ export default function MyInfoWindow() {
   const { onClickWindowClose, windowRenderObj, onClickWindow } = useAppWindowRender()
   return (
     <AppWindow
-      width="820px"
+      width="680px"
       top="10%"
       left="10%"
       zIndex={windowRenderObj.myInfoWindow.zIndexValue}
@@ -350,8 +350,8 @@ export default function MyInfoWindow() {
       <AppWindow.Header onClick={event => onClickWindowClose('myInfoWindow', event)}>내 정보</AppWindow.Header>
       <AppWindow.Content>
         <AppWindow.ContentTitle text="프론트엔드 개발자 천재현 입니다." />
-        <AppWindow.ContentSection height="420px">
-          <AppWindow.ScrollView width="75%">
+        <AppWindow.ContentSection height="450px">
+          <AppWindow.ScrollView width="100%">
             <WindowBody>
               <>
                 <RetroHero>
@@ -434,7 +434,6 @@ export default function MyInfoWindow() {
               </>
             </WindowBody>
           </AppWindow.ScrollView>
-          <AppWindow.Nav />
         </AppWindow.ContentSection>
       </AppWindow.Content>
     </AppWindow>

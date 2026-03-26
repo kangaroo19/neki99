@@ -21,7 +21,7 @@ export default function ContentNav() {
 }
 
 const ButtonContainer = styled.nav`
-  width: 25%;
+  width: 22%;
   height: 50%;
   display: flex;
   flex-direction: column;
