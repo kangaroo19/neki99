@@ -70,6 +70,15 @@ const projects = [
       '오늘의 문제, 정답 결과, 보상 상태 API 분리',
       '당일 학습 완료와 중복 보상 방지 흐름 처리',
     ],
+    accessGuide: {
+      title: '미니앱 들어가는 방법',
+      description: '',
+      steps: [
+        '토스 앱을 실행합니다.',
+        '전체 탭이나 검색에서 오늘의 리스닝을 찾습니다.',
+        '오늘의 리스닝 미니앱을 열고 당일 리스닝 퀴즈를 시작합니다.',
+      ],
+    },
     links: [],
   },
 ]
@@ -159,6 +168,21 @@ export default function MyProjectsWindow() {
                   ))}
                 </List>
               </SectionFrame>
+
+              {selectedProject.accessGuide && (
+                <AccessGuideCard>
+                  <SectionTitle>{selectedProject.accessGuide.title}</SectionTitle>
+                  <SectionText>{selectedProject.accessGuide.description}</SectionText>
+                  <StepList>
+                    {selectedProject.accessGuide.steps.map((step, index) => (
+                      <StepItem key={step}>
+                        <StepNumber>{index + 1}</StepNumber>
+                        <span>{step}</span>
+                      </StepItem>
+                    ))}
+                  </StepList>
+                </AccessGuideCard>
+              )}
 
               {selectedProject.links.length > 0 && (
                 <LinkSection>
@@ -354,6 +378,47 @@ const InstallBox = styled.pre`
   color: #98ffb6;
   font-size: 0.84rem;
   font-family: 'Courier New', monospace;
+`
+
+const AccessGuideCard = styled.section`
+  padding: 14px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #6f6f6f;
+  border-bottom: 2px solid #6f6f6f;
+  background: linear-gradient(180deg, #e9edf3 0%, #d1d7e0 100%);
+`
+
+const StepList = styled.ol`
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  list-style: none;
+`
+
+const StepItem = styled.li`
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+  color: #1f1f1f;
+`
+
+const StepNumber = styled.span`
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  background: #d4d0c8;
+  color: #0a2c88;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
 `
 
 const LinkSection = styled.div`

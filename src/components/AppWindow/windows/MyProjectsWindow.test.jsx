@@ -34,3 +34,13 @@ test('shows daily listening project details when its tab is selected', () => {
   expect(screen.getByText('하루 1문제 학습 플로우')).toBeTruthy()
   expect(screen.getByText('TDS Mobile')).toBeTruthy()
 })
+
+test('shows daily listening mini app access guide when its tab is selected', () => {
+  render(<MyProjectsWindow />)
+
+  fireEvent.click(screen.getByRole('button', { name: '오늘의 리스닝' }))
+
+  expect(screen.getByText('미니앱 들어가는 방법')).toBeTruthy()
+  expect(screen.getByText('토스 앱을 실행합니다.')).toBeTruthy()
+  expect(screen.getByText('전체 탭이나 검색에서 오늘의 리스닝을 찾습니다.')).toBeTruthy()
+})
