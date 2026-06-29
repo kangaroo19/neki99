@@ -180,9 +180,18 @@ const MarkdownContent = styled(Markdown)`
   }
 
   h2,
-  h3 {
+  h3,
+  h4 {
     margin: 0 0 10px;
     color: #0a2c88;
+  }
+
+  h4 {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #a0a0a0;
+    font-size: 0.98rem;
+    font-weight: 700;
   }
 
   p,
@@ -303,25 +312,51 @@ const profileMarkdownContent = `
 - 📩이메일 : 1000jjj@naver.com
 
 ## 
-**React** 기반의 프론트엔드 개발자 천재현입니다.
+루틴한 삶을 좋아하는 프론트엔드 개발자입니다.
+'모르는 것을 아는 것'이라는 태도를 지향하며 살고 있습니다.
 
-**AI**를 활용해 1인 이상의 가치를 만들어내는 데 관심이 많습니다.
-
-단순히 도구를 쓰는 것을 넘어,
-작업을 시스템으로 바꾸는 데 집중합니다.
+AI 자동화 워크플로우와 개발 에이전트에 많은 관심을 가지고 있습니다. AI를 활용해 아이디어를 빠르게 프로덕트로 구체화하고, 개발 과정을 효율화하는 방법을 탐구하고 있습니다.
 `
 
-const careerMarkdownContent = `
+const autoMonitorCareerMarkdownContent = `
 ### 오토오모니터 (2024/07 ~ )
 
 개발팀 매니저로서 자사 솔루션의 프론트엔드 구조 개선과 신규 서비스 개발을 주도하고 있습니다.
 
-- PHP 기반 자사 솔루션을 Next.js 기반으로 마이그레이션하며 기술 스택 현대화를 진행했습니다.
-- React 기반 내부 운영 툴의 프론트엔드를 설계하고 구현했습니다.
-- Vue.js 기반 퍼포먼스 마케팅 대시보드 웹앱을 개발해 데이터 시각화를 지원했습니다.
-- 커뮤니티, 카페, 블로그, 인스타그램, 페이스북 등 다양한 채널의 데이터 수집 로직과 연동 UI를 개발했습니다.
-- 운영 중인 서비스의 유지보수와 기능 개선, 이슈 대응을 맡으며 안정성을 높였습니다.
+#### 1. 자사 메인 솔루션 기술 스택 현대화
 
+**PHP 기반 메인 솔루션을 Next.js로 전환해 중복 구현과 유지보수 비효율을 개선했습니다.**
+
+- 기존 요구사항과 동작을 유지하면서 페이지·컴포넌트 구조를 재설계하고 구현
+- PHP 화면 구성에서 반복되던 중복 코드를 줄이고 확장 가능한 프론트엔드 구조로 전환
+- 마이그레이션 방향 수립부터 실제 화면 구현까지 전환 작업 주도
+
+#### 2. AI 기반 수정 요청 자동화 워크플로우 구축
+
+**수정 요청 접수부터 분류, 코드 수정 초안 및 PR 생성까지 이어지는 AI 자동화 흐름을 구축했습니다.**
+
+- 메신저와 구두로 분산되던 비개발자 수정 요청을 Notion 태스크로 일원화
+- AI가 요청의 중요도와 작업 유형을 분류하고 코드베이스 수정 초안을 생성하도록 구성
+- 반복적인 소규모 수정 업무를 표준화해 요청 누락과 수작업 부담 감소에 기여
+
+#### 3. 마케팅 데이터 시각화 대시보드 구현
+
+**캠페인 성과를 기간·캠페인별로 비교할 수 있는 Vue.js 기반 대시보드를 구현했습니다.**
+
+- CTR, 전환율 등 주요 퍼포먼스 마케팅 지표 시각화
+- 여러 캠페인의 성과를 한 화면에서 비교할 수 있도록 구성
+- 반복적인 데이터 확인 업무를 줄이고 성과 정보 접근성을 개선
+
+#### 4. 뉴스·소셜 미디어 모니터링 플랫폼 운영
+
+**사용자 요구사항을 반영하며 자사 모니터링 플랫폼의 기능 개선과 안정화를 담당했습니다.**
+
+- 운영 중 발생하는 사용자 요구사항과 이슈 분석 및 반영
+- 기존 기능 개선과 서비스 안정화 작업 수행
+- 지속적인 유지보수를 통해 서비스 운영 품질 관리
+`
+
+const geumseongCareerMarkdownContent = `
 ### 금성인터내셔널 (2023/08 ~ 2024/02)
 
 - MUI 기반 백오피스 화면에서 통계 및 관리 기능을 구현했습니다.
@@ -366,7 +401,13 @@ export default function MyInfoWindow() {
                     <RetroKicker>Windows 95 Developer Card</RetroKicker>
                     <RetroHeadline>CHEON JAE HYEON</RetroHeadline>
                     <RetroSubline>
-                      보기 좋은 화면만 만드는 게 아니라, 오래 고칠 수 있는 구조까지 같이 만드는 프론트엔드 개발자입니다.
+                      루틴한 삶을 좋아하는 프론트엔드 개발자입니다.
+                      <br />
+                      &apos;모르는 것을 아는 것&apos;이라는 태도를 지향하며 살고 있습니다.
+                    </RetroSubline>
+                    <RetroSubline>
+                      최근에는 AI 자동화 워크플로우와 개발 에이전트에 많은 관심을 가지고 있습니다. AI를 활용해 아이디어를 빠르게
+                      프로덕트로 구체화하고, 개발 과정을 효율화하는 방법을 탐구하고 있습니다.
                     </RetroSubline>
                     <RetroBadgeRow>
                       <RetroBadge>React</RetroBadge>
@@ -393,11 +434,21 @@ export default function MyInfoWindow() {
 
                 <SectionWindow>
                   <SectionLabel>
-                    <span>Career.log</span>
+                    <span>Career_01.log</span>
                     <SectionMeta>Work History</SectionMeta>
                   </SectionLabel>
                   <SectionBody>
-                    <MarkdownContent>{careerMarkdownContent}</MarkdownContent>
+                    <MarkdownContent>{autoMonitorCareerMarkdownContent}</MarkdownContent>
+                  </SectionBody>
+                </SectionWindow>
+
+                <SectionWindow>
+                  <SectionLabel>
+                    <span>Career_02.log</span>
+                    <SectionMeta>Work History</SectionMeta>
+                  </SectionLabel>
+                  <SectionBody>
+                    <MarkdownContent>{geumseongCareerMarkdownContent}</MarkdownContent>
                   </SectionBody>
                 </SectionWindow>
 
